@@ -13,7 +13,7 @@
               "es": "Llevar la temperatura de la pulpa en tablas de papel alenta las auditorías FSMA",
               "hoursLost": "9.0 hrs / week",
               "financialImpact": "$2,500 / mo rejection risk",
-              "sheetTemplate": "AITech Workshop Cold Storage Pulp Temp Audit Log",
+              "sheetTemplate": "Mayella's Software Workshop Cold Storage Pulp Temp Audit Log",
               "whatsappScript": "Alerta de temperatura: Lote #[Número] reporta [Grados]°F en cuarto frío."
             },
             "Temp logs get lost between night shift and morning quality managers": {
@@ -21,7 +21,7 @@
               "es": "Las hojas de temperatura se pierden entre el turno nocturno y el gerente",
               "hoursLost": "6.0 hrs / week",
               "financialImpact": "Audit vulnerability",
-              "sheetTemplate": "AITech Workshop Shift Handover Temp Log",
+              "sheetTemplate": "Mayella's Software Workshop Shift Handover Temp Log",
               "whatsappScript": "Reporte nocturno de temperatura de cámara fría enviado."
             }
           }
@@ -35,7 +35,7 @@
               "es": "Contar cajas a mano retrasa la nómina diaria de las cuadrillas",
               "hoursLost": "8.0 hrs / week",
               "financialImpact": "Payroll calculation drag",
-              "sheetTemplate": "AITech Workshop Daily Field Harvest & Piece-Rate Scaler",
+              "sheetTemplate": "Mayella's Software Workshop Daily Field Harvest & Piece-Rate Scaler",
               "whatsappScript": "Reporte diario de cosecha: Cuadrilla #[Número] completó [Cajas] cajas."
             },
             "Disputes over box counts between field supervisors and harvest workers": {
@@ -43,7 +43,7 @@
               "es": "Disputas sobre conteo de cajas entre supervisor y jornaleros",
               "hoursLost": "5.0 hrs / week",
               "financialImpact": "Labor friction & distrust",
-              "sheetTemplate": "AITech Workshop Field Crew Verification Sheet",
+              "sheetTemplate": "Mayella's Software Workshop Field Crew Verification Sheet",
               "whatsappScript": "Confirmación de conteo de cajas para cuadrilla #[Número]."
             }
           }
@@ -57,7 +57,7 @@
               "es": "Producto perecedero retenido en cruces sin tableros de control",
               "hoursLost": "10.5 hrs / week",
               "financialImpact": "$3,000 / mo transit hold risk",
-              "sheetTemplate": "AITech Workshop Cold-Chain Border Hold Tracker",
+              "sheetTemplate": "Mayella's Software Workshop Cold-Chain Border Hold Tracker",
               "whatsappScript": "Estatus de inspección USDA para lote #[Número]: En revisión."
             },
             "Broker communications and customs release notices get buried in email threads": {
@@ -65,7 +65,7 @@
               "es": "Avisos de liberación aduanal se pierden en correos electrónicos",
               "hoursLost": "6.5 hrs / week",
               "financialImpact": "Demurrage fees",
-              "sheetTemplate": "AITech Workshop Customs Release Tracker",
+              "sheetTemplate": "Mayella's Software Workshop Customs Release Tracker",
               "whatsappScript": "Aviso urgente de liberación para embarque en garita."
             }
           }
@@ -79,7 +79,7 @@
               "es": "Depender de la memoria para servicios de tractores causa paros en cosecha",
               "hoursLost": "7.0 hrs / week",
               "financialImpact": "$1,800 / mo harvest downtime",
-              "sheetTemplate": "AITech Workshop Ag Equipment Maintenance Log",
+              "sheetTemplate": "Mayella's Software Workshop Ag Equipment Maintenance Log",
               "whatsappScript": "Aviso de mantenimiento preventivo para tractor #[Número]."
             },
             "Emergency part runs for broken machinery stall active harvesting": {
@@ -87,7 +87,7 @@
               "es": "Compras de emergencia de refacciones detienen la cosecha activa",
               "hoursLost": "5.5 hrs / week",
               "financialImpact": "Crew downtime",
-              "sheetTemplate": "AITech Workshop Emergency Parts Dispatch Sheet",
+              "sheetTemplate": "Mayella's Software Workshop Emergency Parts Dispatch Sheet",
               "whatsappScript": "Requerimos refacción urgente para maquinaria en campo."
             }
           }
@@ -101,7 +101,7 @@
               "es": "Los reportes para el comisionado agrícola estatal se arman a mano",
               "hoursLost": "6.5 hrs / week",
               "financialImpact": "Compliance audit risk",
-              "sheetTemplate": "AITech Workshop Ag Chemical & Fumigation Log",
+              "sheetTemplate": "Mayella's Software Workshop Ag Chemical & Fumigation Log",
               "whatsappScript": "Bitácora de aplicación de producto químico completada para lote #[Número]."
             },
             "Worker safety re-entry intervals tracked informally without digital alerts": {
@@ -109,7 +109,7 @@
               "es": "Intervalos de reentrada a campos tratados se llevan sin alertas digitales",
               "hoursLost": "4.0 hrs / week",
               "financialImpact": "Safety liability risk",
-              "sheetTemplate": "AITech Workshop Re-Entry Safety Alert Board",
+              "sheetTemplate": "Mayella's Software Workshop Re-Entry Safety Alert Board",
               "whatsappScript": "Aviso de restricción de entrada en lote tratado con químico."
             }
           }
@@ -129,7 +129,7 @@
               "es": "Copiar instrucciones de carga en chats causa demoras",
               "hoursLost": "12.0 hrs / week",
               "financialImpact": "$2,100 / mo border delays",
-              "sheetTemplate": "AITech Workshop Bilingual Dispatch Log",
+              "sheetTemplate": "Mayella's Software Workshop Bilingual Dispatch Log",
               "whatsappScript": "Carga asignada #[Número]. Cita en aduana: [Hora]."
             },
             "Miscommunication on pickup docks due to language barriers": {
@@ -137,7 +137,7 @@
               "es": "Malentendidos en andenes de carga por barrera de idioma",
               "hoursLost": "6.0 hrs / week",
               "financialImpact": "Dock holding fees",
-              "sheetTemplate": "AITech Workshop Bilingual Dock Instruction Card",
+              "sheetTemplate": "Mayella's Software Workshop Bilingual Dock Instruction Card",
               "whatsappScript": "Instrucciones de andén en español/inglés para chofer."
             }
           }
@@ -151,7 +151,7 @@
               "es": "Contabilidad espera días por sellos físicos o digitales de entrega",
               "hoursLost": "5.5 hrs / week",
               "financialImpact": "$1,400 / mo delayed billing",
-              "sheetTemplate": "AITech Workshop Centralized POD Portal",
+              "sheetTemplate": "Mayella's Software Workshop Centralized POD Portal",
               "whatsappScript": "Favor de enviar foto clara del documento firmado (POD)."
             },
             "Illegible driver photos of signed bills of lading require manual callbacks": {
@@ -159,7 +159,7 @@
               "es": "Fotos borrosas de notas firmadas obligan a llamadas de aclaración",
               "hoursLost": "4.0 hrs / week",
               "financialImpact": "Admin drag",
-              "sheetTemplate": "AITech Workshop POD Verification Log",
+              "sheetTemplate": "Mayella's Software Workshop POD Verification Log",
               "whatsappScript": "Foto de POD ilegible, favor de reenviar con mejor iluminación."
             }
           }
@@ -173,7 +173,7 @@
               "es": "Los datos de fila en el puerto de entrada se pierden en los chats",
               "hoursLost": "7.5 hrs / week",
               "financialImpact": "Dispatcher fatigue",
-              "sheetTemplate": "AITech Workshop Driver Status Board",
+              "sheetTemplate": "Mayella's Software Workshop Driver Status Board",
               "whatsappScript": "Reportar estatus actual de cruce y ubicación en este chat."
             },
             "Drivers reporting delays too late for dispatchers to reroute": {
@@ -181,7 +181,7 @@
               "es": "Choferes reportan retrasos tarde para poder reorientar la ruta",
               "hoursLost": "5.0 hrs / week",
               "financialImpact": "Wasted transit time",
-              "sheetTemplate": "AITech Workshop Real-Time Border Alert Feed",
+              "sheetTemplate": "Mayella's Software Workshop Real-Time Border Alert Feed",
               "whatsappScript": "Alerta de fila en garita, evaluar ruta alterna."
             }
           }
@@ -195,7 +195,7 @@
               "es": "Buscar cajas específicas en los patios polvorientos desperdicia horas",
               "hoursLost": "6.0 hrs / week",
               "financialImpact": "Equipment blind spots",
-              "sheetTemplate": "AITech Workshop Yard Inventory Tracker",
+              "sheetTemplate": "Mayella's Software Workshop Yard Inventory Tracker",
               "whatsappScript": "Reporte de patio: Caja #[Número] en espacio #[Espacio]."
             },
             "Trailer maintenance status unknown until hookup attempt": {
@@ -203,7 +203,7 @@
               "es": "Estatus de remolque desconocido hasta el momento de enganchar",
               "hoursLost": "4.5 hrs / week",
               "financialImpact": "Delayed departures",
-              "sheetTemplate": "AITech Workshop Trailer Readiness Checklist",
+              "sheetTemplate": "Mayella's Software Workshop Trailer Readiness Checklist",
               "whatsappScript": "Verificar estado de frenos y llantas en caja de patio."
             }
           }
@@ -217,7 +217,7 @@
               "es": "Diferencias de peso y códigos arancelarios detectadas tarde",
               "hoursLost": "8.5 hrs / week",
               "financialImpact": "$1,900 / mo customs penalties",
-              "sheetTemplate": "AITech Workshop Customs Discrepancy Log",
+              "sheetTemplate": "Mayella's Software Workshop Customs Discrepancy Log",
               "whatsappScript": "Revisión urgente de manifiesto para embarque #[Número]."
             },
             "Missing broker sign-offs halting cross-border dispatch at Mexicali port": {
@@ -225,7 +225,7 @@
               "es": "Falta de firmas del agente aduanal detiene el despacho en Mexicali",
               "hoursLost": "7.0 hrs / week",
               "financialImpact": "Border standstill",
-              "sheetTemplate": "AITech Workshop Broker Sign-Off Tracker",
+              "sheetTemplate": "Mayella's Software Workshop Broker Sign-Off Tracker",
               "whatsappScript": "Pendiente firma de agente aduanal para liberar unidad."
             }
           }
@@ -245,7 +245,7 @@
               "es": "Las órdenes se pierden en las bahías antes de llegar a caja",
               "hoursLost": "8.5 hrs / week",
               "financialImpact": "$1,200 / mo unbilled parts",
-              "sheetTemplate": "AITech Workshop Mobile Bay Ticket Log",
+              "sheetTemplate": "Mayella's Software Workshop Mobile Bay Ticket Log",
               "whatsappScript": "Unidad [Modelo] lista en taller. Total: $[Monto]."
             },
             "Labor hours undocumented because mechanics forget to log wrench time": {
@@ -253,7 +253,7 @@
               "es": "Horas de mano de obra sin registrar por olvido de los mecánicos",
               "hoursLost": "6.0 hrs / week",
               "financialImpact": "Unbilled technician hours",
-              "sheetTemplate": "AITech Workshop Technician Time Tracker",
+              "sheetTemplate": "Mayella's Software Workshop Technician Time Tracker",
               "whatsappScript": "Favor de registrar horas de taller para unidad en rampa."
             }
           }
@@ -267,7 +267,7 @@
               "es": "Los enlaces se quedan sin pagar porque los recordatorios son manuales",
               "hoursLost": "4.5 hrs / week",
               "financialImpact": "Cash flow bottleneck",
-              "sheetTemplate": "AITech Workshop Payment Aging Tracker",
+              "sheetTemplate": "Mayella's Software Workshop Payment Aging Tracker",
               "whatsappScript": "Recordatorio de saldo pendiente: $[Monto]. Enlace: [Link]."
             },
             "Fleet commercial accounts take 30+ days to issue checks after invoice delivery": {
@@ -275,7 +275,7 @@
               "es": "Cuentas comerciales de flotas tardan 30+ días en emitir cheque",
               "hoursLost": "5.0 hrs / week",
               "financialImpact": "Working capital drain",
-              "sheetTemplate": "AITech Workshop Commercial Fleet Accounts Log",
+              "sheetTemplate": "Mayella's Software Workshop Commercial Fleet Accounts Log",
               "whatsappScript": "Estado de cuenta pendiente para validación de pago comercial."
             }
           }
@@ -289,7 +289,7 @@
               "es": "Buscar piezas por teléfono detiene el trabajo en las rampas",
               "hoursLost": "6.0 hrs / week",
               "financialImpact": "$850 / mo bay downtime",
-              "sheetTemplate": "AITech Workshop Valley Supplier Index",
+              "sheetTemplate": "Mayella's Software Workshop Valley Supplier Index",
               "whatsappScript": "Cotización urgente para pieza: [Nombre/Modelo]."
             },
             "Wrong parts ordered due to verbal cross-counter miscommunications": {
@@ -297,7 +297,7 @@
               "es": "Piezas incorrectas pedidas por mala comunicación telefónica",
               "hoursLost": "4.5 hrs / week",
               "financialImpact": "Restocking fees",
-              "sheetTemplate": "AITech Workshop Parts Order Verification Sheet",
+              "sheetTemplate": "Mayella's Software Workshop Parts Order Verification Sheet",
               "whatsappScript": "Confirmando número de parte exacto por foto."
             }
           }
@@ -311,7 +311,7 @@
               "es": "Los asesores pasan medio día respondiendo llamadas de estatus",
               "hoursLost": "10.0 hrs / week",
               "financialImpact": "Front desk burnout",
-              "sheetTemplate": "AITech Workshop WhatsApp Status Broadcast Log",
+              "sheetTemplate": "Mayella's Software Workshop WhatsApp Status Broadcast Log",
               "whatsappScript": "Su vehículo sigue en diagnóstico. Le avisaremos en cuanto esté listo."
             },
             "Customers arriving unannounced before vehicles are fully reassembled": {
@@ -319,7 +319,7 @@
               "es": "Clientes llegan sin avisar antes de que la unidad esté armada",
               "hoursLost": "4.0 hrs / week",
               "financialImpact": "Customer friction",
-              "sheetTemplate": "AITech Workshop Pickup Notification Board",
+              "sheetTemplate": "Mayella's Software Workshop Pickup Notification Board",
               "whatsappScript": "Su unidad está en fase final de armado, le avisaremos al concluir."
             }
           }
@@ -333,7 +333,7 @@
               "es": "Cascos y garantías vencidas acumuladas en estantes del taller",
               "hoursLost": "4.0 hrs / week",
               "financialImpact": "$600 / mo lost credit",
-              "sheetTemplate": "AITech Workshop Warranty & Core Return Tracker",
+              "sheetTemplate": "Mayella's Software Workshop Warranty & Core Return Tracker",
               "whatsappScript": "Reporte de devolución de casco para pieza #[Número]."
             },
             "Supplier warranty claim paperwork rejected due to missing core tags": {
@@ -341,7 +341,7 @@
               "es": "Garantías rechazadas con proveedores por falta de etiquetas de casco",
               "hoursLost": "3.5 hrs / week",
               "financialImpact": "Uncredited warranty costs",
-              "sheetTemplate": "AITech Workshop Warranty Claim Documentation Log",
+              "sheetTemplate": "Mayella's Software Workshop Warranty Claim Documentation Log",
               "whatsappScript": "Validando etiqueta de garantía para pieza defectuosa."
             }
           }
@@ -361,7 +361,7 @@
               "es": "Los correos pierden inmediatez; se pierden trabajos ante la competencia",
               "hoursLost": "7.0 hrs / week",
               "financialImpact": "$3,200 / mo lost bids",
-              "sheetTemplate": "AITech Workshop Bid Follow-Up Board",
+              "sheetTemplate": "Mayella's Software Workshop Bid Follow-Up Board",
               "whatsappScript": "Hola, ¿pudo revisar el presupuesto enviado? Quedamos a sus órdenes."
             },
             "Homeowners request quotes on the spot while contractors are on ladders": {
@@ -369,7 +369,7 @@
               "es": "Clientes piden cotizaciones en el momento mientras el contratista trabaja",
               "hoursLost": "5.5 hrs / week",
               "financialImpact": "Missed leads",
-              "sheetTemplate": "AITech Workshop Quick-Estimate Mobile Matrix",
+              "sheetTemplate": "Mayella's Software Workshop Quick-Estimate Mobile Matrix",
               "whatsappScript": "Estoy en obra ahora mismo, le envío presupuesto por la tarde."
             }
           }
@@ -383,7 +383,7 @@
               "es": "Trabajos extra pedidos de palabra no se firman antes de ejecutarse",
               "hoursLost": "6.0 hrs / week",
               "financialImpact": "Unbilled labor leakage",
-              "sheetTemplate": "AITech Workshop Field Change Order Approval Sheet",
+              "sheetTemplate": "Mayella's Software Workshop Field Change Order Approval Sheet",
               "whatsappScript": "Confirmando ajuste adicional en obra: [Detalle]. Costo: $[Monto]."
             },
             "Homeowners dispute material upgrade costs mentioned during casual site walk-throughs": {
@@ -391,7 +391,7 @@
               "es": "Clientes discuten costos de mejora mencionados en recorridos informales",
               "hoursLost": "4.0 hrs / week",
               "financialImpact": "Unbilled material leakage",
-              "sheetTemplate": "AITech Workshop Site Walk-Through Sign-Off Log",
+              "sheetTemplate": "Mayella's Software Workshop Site Walk-Through Sign-Off Log",
               "whatsappScript": "Confirmando actualización de material solicitada en visita."
             }
           }
@@ -405,7 +405,7 @@
               "es": "Cuadrillas llegan tarde o encimadas por falta de un calendario central",
               "hoursLost": "8.0 hrs / week",
               "financialImpact": "Scheduling conflicts",
-              "sheetTemplate": "AITech Workshop Master Project Calendar",
+              "sheetTemplate": "Mayella's Software Workshop Master Project Calendar",
               "whatsappScript": "Aviso de programación: Obra en [Dirección] inicia mañana."
             },
             "Subcontractor availability changes communicated last-minute via phone calls": {
@@ -413,7 +413,7 @@
               "es": "Cambios de disponibilidad de subcontratistas avisados de último minuto",
               "hoursLost": "5.0 hrs / week",
               "financialImpact": "Project delays",
-              "sheetTemplate": "AITech Workshop Subcontractor Availability Tracker",
+              "sheetTemplate": "Mayella's Software Workshop Subcontractor Availability Tracker",
               "whatsappScript": "Actualizando calendario de subcontratistas para esta semana."
             }
           }
@@ -427,7 +427,7 @@
               "es": "Las cuadrillas paran labores mientras el contratista va por materiales",
               "hoursLost": "5.5 hrs / week",
               "financialImpact": "Productivity hours lost",
-              "sheetTemplate": "AITech Workshop Job Site Material Checklist",
+              "sheetTemplate": "Mayella's Software Workshop Job Site Material Checklist",
               "whatsappScript": "Lista de materiales faltantes para obra [Nombre]: [Detalles]."
             },
             "Missing specialty fasteners or fittings discovered halfway through installation": {
@@ -435,7 +435,7 @@
               "es": "Falta de tornillería o piezas especiales descubierta a mitad de instalación",
               "hoursLost": "4.0 hrs / week",
               "financialImpact": "Install delays",
-              "sheetTemplate": "AITech Workshop Pre-Install Tool & Hardware Check",
+              "sheetTemplate": "Mayella's Software Workshop Pre-Install Tool & Hardware Check",
               "whatsappScript": "Verificando lista de herrajes antes de iniciar instalación."
             }
           }
@@ -449,7 +449,7 @@
               "es": "Se acumulan cargos por retraso en renta por falta de recordatorios",
               "hoursLost": "4.5 hrs / week",
               "financialImpact": "$800 / mo late fees",
-              "sheetTemplate": "AITech Workshop Equipment Rental Tracker",
+              "sheetTemplate": "Mayella's Software Workshop Equipment Rental Tracker",
               "whatsappScript": "Aviso de devolución: Equipo rentado vence mañana."
             },
             "Rental tools misplaced across multiple job sites without asset tagging": {
@@ -457,7 +457,7 @@
               "es": "Herramientas de renta extraviadas en diferentes obras sin etiquetas",
               "hoursLost": "3.5 hrs / week",
               "financialImpact": "Replacement costs",
-              "sheetTemplate": "AITech Workshop Tool Asset Tracking Sheet",
+              "sheetTemplate": "Mayella's Software Workshop Tool Asset Tracking Sheet",
               "whatsappScript": "Reporte de ubicación de herramienta rentada en obra."
             }
           }
@@ -477,7 +477,7 @@
               "es": "Notas en papel en cocinas causan errores y platillos devueltos",
               "hoursLost": "5.0 hrs / week",
               "financialImpact": "$600 / mo remade orders",
-              "sheetTemplate": "AITech Workshop Catering Order & Allergen Sheet",
+              "sheetTemplate": "Mayella's Software Workshop Catering Order & Allergen Sheet",
               "whatsappScript": "Confirmando pedido de catering y restricciones para el [Fecha]."
             },
             "Kitchen staff missing verbal dietary modifications during weekend rushes": {
@@ -485,7 +485,7 @@
               "es": "Personal de cocina pasa por alto cambios verbales en horas pico",
               "hoursLost": "4.0 hrs / week",
               "financialImpact": "Remade food waste",
-              "sheetTemplate": "AITech Workshop Kitchen Prep Allergen Board",
+              "sheetTemplate": "Mayella's Software Workshop Kitchen Prep Allergen Board",
               "whatsappScript": "Revisión de restricciones especiales para evento del fin de semana."
             }
           }
@@ -499,7 +499,7 @@
               "es": "Ajustes de receta bajo presión generan mermas o falta de comida",
               "hoursLost": "4.5 hrs / week",
               "financialImpact": "Food waste & loss",
-              "sheetTemplate": "AITech Workshop Portion & Ingredient Scaler",
+              "sheetTemplate": "Mayella's Software Workshop Portion & Ingredient Scaler",
               "whatsappScript": "Nuevo número de invitados confirmado: [Número]. Ajustando inventario."
             },
             "Last-minute headcount increases requiring emergency grocery store runs": {
@@ -507,7 +507,7 @@
               "es": "Aumento de última hora que exige compras de emergencia en tienda",
               "hoursLost": "3.5 hrs / week",
               "financialImpact": "Purchasing inefficiency",
-              "sheetTemplate": "AITech Workshop Emergency Ingredient Scaler",
+              "sheetTemplate": "Mayella's Software Workshop Emergency Ingredient Scaler",
               "whatsappScript": "Aviso de ajuste de porciones por incremento de invitados."
             }
           }
@@ -521,7 +521,7 @@
               "es": "Mercancía de proveedores recibida de memoria sin comprobante escrito",
               "hoursLost": "3.5 hrs / week",
               "financialImpact": "Spoilage & pricing disputes",
-              "sheetTemplate": "AITech Workshop Kitchen Receiving Log",
+              "sheetTemplate": "Mayella's Software Workshop Kitchen Receiving Log",
               "whatsappScript": "Pedido de proveedor recibido y verificado en cocina."
             },
             "Quality defects on incoming produce discovered too late during prep": {
@@ -529,7 +529,7 @@
               "es": "Defectos de calidad en verdura descubiertos tarde al preparar",
               "hoursLost": "3.0 hrs / week",
               "financialImpact": "Produce wastage",
-              "sheetTemplate": "AITech Workshop Produce Quality Inspection Log",
+              "sheetTemplate": "Mayella's Software Workshop Produce Quality Inspection Log",
               "whatsappScript": "Reporte de calidad de hortalizas recibidas de proveedor."
             }
           }
@@ -543,7 +543,7 @@
               "es": "Los tiempos de cocina en pizarrón se borran o confunden el fin de semana",
               "hoursLost": "4.0 hrs / week",
               "financialImpact": "Kitchen stress & delays",
-              "sheetTemplate": "AITech Workshop Weekend Prep Schedule Master",
+              "sheetTemplate": "Mayella's Software Workshop Weekend Prep Schedule Master",
               "whatsappScript": "Cronograma de preparación para evento enviado al equipo."
             },
             "Shift handovers lacking clear documentation of prep completion status": {
@@ -551,7 +551,7 @@
               "es": "Cambios de turno sin registro claro de avance de preparación",
               "hoursLost": "3.0 hrs / week",
               "financialImpact": "Operational friction",
-              "sheetTemplate": "AITech Workshop Kitchen Shift Handover Log",
+              "sheetTemplate": "Mayella's Software Workshop Kitchen Shift Handover Log",
               "whatsappScript": "Reporte de avance de preparación para siguiente turno."
             }
           }
@@ -565,7 +565,7 @@
               "es": "Los choferes se pierden porque las direcciones se envían por separado",
               "hoursLost": "5.0 hrs / week",
               "financialImpact": "Late event deliveries",
-              "sheetTemplate": "AITech Workshop Catering Delivery Route Dispatch",
+              "sheetTemplate": "Mayella's Software Workshop Catering Delivery Route Dispatch",
               "whatsappScript": "Ruta de entrega confirmada para evento en [Dirección]."
             },
             "Equipment pickup and return logistics after events tracked haphazardly": {
@@ -573,7 +573,7 @@
               "es": "Logística de recogida de equipo post-evento sin control fijo",
               "hoursLost": "3.5 hrs / week",
               "financialImpact": "Lost serving equipment",
-              "sheetTemplate": "AITech Workshop Catering Equipment Return Log",
+              "sheetTemplate": "Mayella's Software Workshop Catering Equipment Return Log",
               "whatsappScript": "Verificando retorno de equipo de banquete."
             }
           }

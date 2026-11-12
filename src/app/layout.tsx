@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Independent Software/Tech Workshop",
-  description: "Business workflow tools from AITech Workshop.",
+  title: "Mayella's Software Workshop",
+  description: "Business workflow tools from Mayella's Software Workshop.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

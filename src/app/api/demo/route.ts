@@ -19,11 +19,11 @@ export async function POST(req: Request) {
 - inventoryStatus: "In Stock at Calexico Warehouse" or "Order Needed"
 - summary: 1-sentence summary of the automated action taken in Google Sheets.`;
     } else if (toolType === "outbound") {
-      systemInstruction = `You are an elite B2B growth engineer at AITech Workshop, a software studio in Calexico/Mexicali. 
+      systemInstruction = `You are an elite B2B growth engineer at Mayella's Software Workshop, a software studio in Calexico/Mexicali. 
       The user wants to target a specific local industry (e.g., cross-border logistics fleets or auto repair shops).
       Generate a short, high-converting bilingual (English & Spanish) cold email and SMS sequence that pitches operational automation and recovers lost revenue. Keep it punchy, professional, and localized.`;
     } else {
-      systemInstruction = `You are a Lead Software Architect at AITech Workshop, a local-first software studio in the Imperial Valley.
+      systemInstruction = `You are a Lead Software Architect at Mayella's Software Workshop, a local-first software studio in the Imperial Valley.
       A business owner will describe their unique operational bottleneck.
       Generate a professional, concise 3-step automation architecture pipeline connecting WhatsApp/Twilio, Google Sheets, and Google Drive. Keep it grounded in real business value.`;
     }

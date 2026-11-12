@@ -472,7 +472,7 @@ export default function Home() {
             M
           </div>
           <div>
-            <h1 className="text-sm font-bold tracking-tight text-white leading-none">Independent Software Workshop</h1>
+            <h1 className="text-sm font-bold tracking-tight text-white leading-none">Mayella&apos;s Software Workshop</h1>
             <p className="text-[10px] text-neutral-400 font-mono tracking-wider">
               {lang === "en" ? "IMPERIAL VALLEY & MEXICALI" : "VALLE IMPERIAL Y MEXICALI"}
             </p>
@@ -542,7 +542,7 @@ export default function Home() {
         {view === "bio" && (
           <div className="space-y-6 max-w-lg mx-auto py-4 text-xs md:text-sm leading-relaxed text-neutral-300 animate-fadeIn">
             <div className="space-y-2 border-b border-neutral-800 pb-4">
-              <h2 className="text-xl font-bold text-white">Mayella — Independent Software Workshop</h2>
+              <h2 className="text-xl font-bold text-white">Mayella&apos;s Software Workshop</h2>
               <p className="text-neutral-400 font-mono text-xs">Imperial Valley & Mexicali Corridor</p>
             </div>
 
@@ -995,7 +995,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="py-4 border-t border-neutral-900 mt-8 flex justify-between items-center text-[10px] text-neutral-400 font-mono">
-        <span>© 2026 AITech Workshop</span>
+        <span>© 2026 Mayella&apos;s Software Workshop</span>
         <span className="text-neutral-400">Imperial Valley / Mexicali Corridor</span>
       </footer>
 
