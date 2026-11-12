@@ -1,0 +1,584 @@
+{
+  "categories": {
+    "Ag & Produce Packing": {
+      "en": "Ag & Produce Packing",
+      "es": "Agrícola y Empaque de Hortalizas",
+      "leaks": {
+        "Paper cold-storage pulp temp logs causing compliance rejections": {
+          "en": "Paper cold-storage pulp temp logs causing compliance rejections",
+          "es": "Registros de temperatura en papel generan rechazos de calidad",
+          "frictions": {
+            "Manual pulp temp checks written on clipboards delay FSMA compliance audits": {
+              "en": "Manual pulp temp checks written on clipboards delay FSMA compliance audits",
+              "es": "Llevar la temperatura de la pulpa en tablas de papel alenta las auditorías FSMA",
+              "hoursLost": "9.0 hrs / week",
+              "financialImpact": "$2,500 / mo rejection risk",
+              "sheetTemplate": "AITech Workshop Cold Storage Pulp Temp Audit Log",
+              "whatsappScript": "Alerta de temperatura: Lote #[Número] reporta [Grados]°F en cuarto frío."
+            },
+            "Temp logs get lost between night shift and morning quality managers": {
+              "en": "Temp logs get lost between night shift and morning quality managers",
+              "es": "Las hojas de temperatura se pierden entre el turno nocturno y el gerente",
+              "hoursLost": "6.0 hrs / week",
+              "financialImpact": "Audit vulnerability",
+              "sheetTemplate": "AITech Workshop Shift Handover Temp Log",
+              "whatsappScript": "Reporte nocturno de temperatura de cámara fría enviado."
+            }
+          }
+        },
+        "Seasonal piece-rate field tallying calculated manually on paper": {
+          "en": "Seasonal piece-rate field tallying calculated manually on paper",
+          "es": "Conteo de cajas por pieza en campo calculado a mano",
+          "frictions": {
+            "Hand-counted harvest tallies delay daily payroll for field crews": {
+              "en": "Hand-counted harvest tallies delay daily payroll for field crews",
+              "es": "Contar cajas a mano retrasa la nómina diaria de las cuadrillas",
+              "hoursLost": "8.0 hrs / week",
+              "financialImpact": "Payroll calculation drag",
+              "sheetTemplate": "AITech Workshop Daily Field Harvest & Piece-Rate Scaler",
+              "whatsappScript": "Reporte diario de cosecha: Cuadrilla #[Número] completó [Cajas] cajas."
+            },
+            "Disputes over box counts between field supervisors and harvest workers": {
+              "en": "Disputes over box counts between field supervisors and harvest workers",
+              "es": "Disputas sobre conteo de cajas entre supervisor y jornaleros",
+              "hoursLost": "5.0 hrs / week",
+              "financialImpact": "Labor friction & distrust",
+              "sheetTemplate": "AITech Workshop Field Crew Verification Sheet",
+              "whatsappScript": "Confirmación de conteo de cajas para cuadrilla #[Número]."
+            }
+          }
+        },
+        "USDA / FDA border inspection holds tracked on messy paper notes": {
+          "en": "USDA / FDA border inspection holds tracked on messy paper notes",
+          "es": "Retenciones de inspección USDA/FDA anotadas en papeles sueltos",
+          "frictions": {
+            "Perishable produce delayed at border crossings without tracking boards": {
+              "en": "Perishable produce delayed at border crossings without tracking boards",
+              "es": "Producto perecedero retenido en cruces sin tableros de control",
+              "hoursLost": "10.5 hrs / week",
+              "financialImpact": "$3,000 / mo transit hold risk",
+              "sheetTemplate": "AITech Workshop Cold-Chain Border Hold Tracker",
+              "whatsappScript": "Estatus de inspección USDA para lote #[Número]: En revisión."
+            },
+            "Broker communications and customs release notices get buried in email threads": {
+              "en": "Broker communications and customs release notices get buried in email threads",
+              "es": "Avisos de liberación aduanal se pierden en correos electrónicos",
+              "hoursLost": "6.5 hrs / week",
+              "financialImpact": "Demurrage fees",
+              "sheetTemplate": "AITech Workshop Customs Release Tracker",
+              "whatsappScript": "Aviso urgente de liberación para embarque en garita."
+            }
+          }
+        },
+        "Tractor & ag equipment breakdowns in field due to missed maintenance": {
+          "en": "Tractor & ag equipment breakdowns in field due to missed maintenance",
+          "es": "Fallas de maquinaria en campo por falta de mantenimiento preventivo",
+          "frictions": {
+            "Relying on memory for tractor service intervals leads to harvest downtime": {
+              "en": "Relying on memory for tractor service intervals leads to harvest downtime",
+              "es": "Depender de la memoria para servicios de tractores causa paros en cosecha",
+              "hoursLost": "7.0 hrs / week",
+              "financialImpact": "$1,800 / mo harvest downtime",
+              "sheetTemplate": "AITech Workshop Ag Equipment Maintenance Log",
+              "whatsappScript": "Aviso de mantenimiento preventivo para tractor #[Número]."
+            },
+            "Emergency part runs for broken machinery stall active harvesting": {
+              "en": "Emergency part runs for broken machinery stall active harvesting",
+              "es": "Compras de emergencia de refacciones detienen la cosecha activa",
+              "hoursLost": "5.5 hrs / week",
+              "financialImpact": "Crew downtime",
+              "sheetTemplate": "AITech Workshop Emergency Parts Dispatch Sheet",
+              "whatsappScript": "Requerimos refacción urgente para maquinaria en campo."
+            }
+          }
+        },
+        "Pesticide & fumigation compliance reporting takes hours of paperwork": {
+          "en": "Pesticide & fumigation compliance reporting takes hours of paperwork",
+          "es": "Reportes de fumigación y cumplimiento toman horas de papeleo",
+          "frictions": {
+            "State agricultural commissioner paperwork is compiled by hand": {
+              "en": "State agricultural commissioner paperwork is compiled by hand",
+              "es": "Los reportes para el comisionado agrícola estatal se arman a mano",
+              "hoursLost": "6.5 hrs / week",
+              "financialImpact": "Compliance audit risk",
+              "sheetTemplate": "AITech Workshop Ag Chemical & Fumigation Log",
+              "whatsappScript": "Bitácora de aplicación de producto químico completada para lote #[Número]."
+            },
+            "Worker safety re-entry intervals tracked informally without digital alerts": {
+              "en": "Worker safety re-entry intervals tracked informally without digital alerts",
+              "es": "Intervalos de reentrada a campos tratados se llevan sin alertas digitales",
+              "hoursLost": "4.0 hrs / week",
+              "financialImpact": "Safety liability risk",
+              "sheetTemplate": "AITech Workshop Re-Entry Safety Alert Board",
+              "whatsappScript": "Aviso de restricción de entrada en lote tratado con químico."
+            }
+          }
+        }
+      }
+    },
+    "Cross-Border Logistics & Freight": {
+      "en": "Cross-Border Logistics & Freight",
+      "es": "Logística y Transporte Transfronterizo",
+      "leaks": {
+        "Translating load details between US brokers & Spanish drivers": {
+          "en": "Translating load details between US brokers & Spanish drivers",
+          "es": "Traducción de cargas entre brokers de EE.UU. y choferes en México",
+          "frictions": {
+            "Manual copy-pasting of load instructions across WhatsApp chats causes delays": {
+              "en": "Manual copy-pasting of load instructions across WhatsApp chats causes delays",
+              "es": "Copiar instrucciones de carga en chats causa demoras",
+              "hoursLost": "12.0 hrs / week",
+              "financialImpact": "$2,100 / mo border delays",
+              "sheetTemplate": "AITech Workshop Bilingual Dispatch Log",
+              "whatsappScript": "Carga asignada #[Número]. Cita en aduana: [Hora]."
+            },
+            "Miscommunication on pickup docks due to language barriers": {
+              "en": "Miscommunication on pickup docks due to language barriers",
+              "es": "Malentendidos en andenes de carga por barrera de idioma",
+              "hoursLost": "6.0 hrs / week",
+              "financialImpact": "Dock holding fees",
+              "sheetTemplate": "AITech Workshop Bilingual Dock Instruction Card",
+              "whatsappScript": "Instrucciones de andén en español/inglés para chofer."
+            }
+          }
+        },
+        "Proof of Delivery (POD) photos scattered across driver chat apps": {
+          "en": "Proof of Delivery (POD) photos scattered across driver chat apps",
+          "es": "Fotos de comprobantes (POD) dispersas en aplicaciones de chat",
+          "frictions": {
+            "Accounting waits days for physical or digital delivery stamps to arrive": {
+              "en": "Accounting waits days for physical or digital delivery stamps to arrive",
+              "es": "Contabilidad espera días por sellos físicos o digitales de entrega",
+              "hoursLost": "5.5 hrs / week",
+              "financialImpact": "$1,400 / mo delayed billing",
+              "sheetTemplate": "AITech Workshop Centralized POD Portal",
+              "whatsappScript": "Favor de enviar foto clara del documento firmado (POD)."
+            },
+            "Illegible driver photos of signed bills of lading require manual callbacks": {
+              "en": "Illegible driver photos of signed bills of lading require manual callbacks",
+              "es": "Fotos borrosas de notas firmadas obligan a llamadas de aclaración",
+              "hoursLost": "4.0 hrs / week",
+              "financialImpact": "Admin drag",
+              "sheetTemplate": "AITech Workshop POD Verification Log",
+              "whatsappScript": "Foto de POD ilegible, favor de reenviar con mejor iluminación."
+            }
+          }
+        },
+        "Endless WhatsApp group texts tracking border crossing wait times": {
+          "en": "Endless WhatsApp group texts tracking border crossing wait times",
+          "es": "Infinidad de mensajes en grupo reportando esperas en aduana",
+          "frictions": {
+            "Critical port-of-entry queue data gets buried in chaotic group chats": {
+              "en": "Critical port-of-entry queue data gets buried in chaotic group chats",
+              "es": "Los datos de fila en el puerto de entrada se pierden en los chats",
+              "hoursLost": "7.5 hrs / week",
+              "financialImpact": "Dispatcher fatigue",
+              "sheetTemplate": "AITech Workshop Driver Status Board",
+              "whatsappScript": "Reportar estatus actual de cruce y ubicación en este chat."
+            },
+            "Drivers reporting delays too late for dispatchers to reroute": {
+              "en": "Drivers reporting delays too late for dispatchers to reroute",
+              "es": "Choferes reportan retrasos tarde para poder reorientar la ruta",
+              "hoursLost": "5.0 hrs / week",
+              "financialImpact": "Wasted transit time",
+              "sheetTemplate": "AITech Workshop Real-Time Border Alert Feed",
+              "whatsappScript": "Alerta de fila en garita, evaluar ruta alterna."
+            }
+          }
+        },
+        "Empty yard trailer inventory tracked on manual clipboards": {
+          "en": "Empty yard trailer inventory tracked on manual clipboards",
+          "es": "Inventario de cajas vacías en patio llevado en tablas de papel",
+          "frictions": {
+            "Locating specific trailers across dusty Valley yards wastes valuable hours": {
+              "en": "Locating specific trailers across dusty Valley yards wastes valuable hours",
+              "es": "Buscar cajas específicas en los patios polvorientos desperdicia horas",
+              "hoursLost": "6.0 hrs / week",
+              "financialImpact": "Equipment blind spots",
+              "sheetTemplate": "AITech Workshop Yard Inventory Tracker",
+              "whatsappScript": "Reporte de patio: Caja #[Número] en espacio #[Espacio]."
+            },
+            "Trailer maintenance status unknown until hookup attempt": {
+              "en": "Trailer maintenance status unknown until hookup attempt",
+              "es": "Estatus de remolque desconocido hasta el momento de enganchar",
+              "hoursLost": "4.5 hrs / week",
+              "financialImpact": "Delayed departures",
+              "sheetTemplate": "AITech Workshop Trailer Readiness Checklist",
+              "whatsappScript": "Verificar estado de frenos y llantas en caja de patio."
+            }
+          }
+        },
+        "Customs brokerage document discrepancies holding up border releases": {
+          "en": "Customs brokerage document discrepancies holding up border releases",
+          "es": "Discrepancias en documentos aduanales detienen la liberación",
+          "frictions": {
+            "Mismatched manifest weights and tariff codes caught at final inspection": {
+              "en": "Mismatched manifest weights and tariff codes caught at final inspection",
+              "es": "Diferencias de peso y códigos arancelarios detectadas tarde",
+              "hoursLost": "8.5 hrs / week",
+              "financialImpact": "$1,900 / mo customs penalties",
+              "sheetTemplate": "AITech Workshop Customs Discrepancy Log",
+              "whatsappScript": "Revisión urgente de manifiesto para embarque #[Número]."
+            },
+            "Missing broker sign-offs halting cross-border dispatch at Mexicali port": {
+              "en": "Missing broker sign-offs halting cross-border dispatch at Mexicali port",
+              "es": "Falta de firmas del agente aduanal detiene el despacho en Mexicali",
+              "hoursLost": "7.0 hrs / week",
+              "financialImpact": "Border standstill",
+              "sheetTemplate": "AITech Workshop Broker Sign-Off Tracker",
+              "whatsappScript": "Pendiente firma de agente aduanal para liberar unidad."
+            }
+          }
+        }
+      }
+    },
+    "Auto Repair & Diesel Fleet": {
+      "en": "Auto Repair & Diesel Fleet",
+      "es": "Taller Mecánico y Flotas Diesel",
+      "leaks": {
+        "Mechanic handwriting unreadable on greasy paper job slips": {
+          "en": "Mechanic handwriting unreadable on greasy paper job slips",
+          "es": "Letra ilegible del mecánico en órdenes de papel grasientas",
+          "frictions": {
+            "Paper tickets get lost in bays before reaching billing desk": {
+              "en": "Paper tickets get lost in bays before reaching billing desk",
+              "es": "Las órdenes se pierden en las bahías antes de llegar a caja",
+              "hoursLost": "8.5 hrs / week",
+              "financialImpact": "$1,200 / mo unbilled parts",
+              "sheetTemplate": "AITech Workshop Mobile Bay Ticket Log",
+              "whatsappScript": "Unidad [Modelo] lista en taller. Total: $[Monto]."
+            },
+            "Labor hours undocumented because mechanics forget to log wrench time": {
+              "en": "Labor hours undocumented because mechanics forget to log wrench time",
+              "es": "Horas de mano de obra sin registrar por olvido de los mecánicos",
+              "hoursLost": "6.0 hrs / week",
+              "financialImpact": "Unbilled technician hours",
+              "sheetTemplate": "AITech Workshop Technician Time Tracker",
+              "whatsappScript": "Favor de registrar horas de taller para unidad en rampa."
+            }
+          }
+        },
+        "Digital invoices sent out but sitting unpaid for 72+ hours": {
+          "en": "Digital invoices sent out but sitting unpaid for 72+ hours",
+          "es": "Facturas digitales enviadas pero sin pagar por más de 72 horas",
+          "frictions": {
+            "Payment links sit in customer texts because reminders require manual work": {
+              "en": "Payment links sit in customer texts because reminders require manual work",
+              "es": "Los enlaces se quedan sin pagar porque los recordatorios son manuales",
+              "hoursLost": "4.5 hrs / week",
+              "financialImpact": "Cash flow bottleneck",
+              "sheetTemplate": "AITech Workshop Payment Aging Tracker",
+              "whatsappScript": "Recordatorio de saldo pendiente: $[Monto]. Enlace: [Link]."
+            },
+            "Fleet commercial accounts take 30+ days to issue checks after invoice delivery": {
+              "en": "Fleet commercial accounts take 30+ days to issue checks after invoice delivery",
+              "es": "Cuentas comerciales de flotas tardan 30+ días en emitir cheque",
+              "hoursLost": "5.0 hrs / week",
+              "financialImpact": "Working capital drain",
+              "sheetTemplate": "AITech Workshop Commercial Fleet Accounts Log",
+              "whatsappScript": "Estado de cuenta pendiente para validación de pago comercial."
+            }
+          }
+        },
+        "Calling multiple local parts stores to check stock & pricing": {
+          "en": "Calling multiple local parts stores to check stock & pricing",
+          "es": "Llamar a varias refaccionarias locales para existencias y precios",
+          "frictions": {
+            "Jumping between supplier desk calls holds up active repair bays": {
+              "en": "Jumping between supplier desk calls holds up active repair bays",
+              "es": "Buscar piezas por teléfono detiene el trabajo en las rampas",
+              "hoursLost": "6.0 hrs / week",
+              "financialImpact": "$850 / mo bay downtime",
+              "sheetTemplate": "AITech Workshop Valley Supplier Index",
+              "whatsappScript": "Cotización urgente para pieza: [Nombre/Modelo]."
+            },
+            "Wrong parts ordered due to verbal cross-counter miscommunications": {
+              "en": "Wrong parts ordered due to verbal cross-counter miscommunications",
+              "es": "Piezas incorrectas pedidas por mala comunicación telefónica",
+              "hoursLost": "4.5 hrs / week",
+              "financialImpact": "Restocking fees",
+              "sheetTemplate": "AITech Workshop Parts Order Verification Sheet",
+              "whatsappScript": "Confirmando número de parte exacto por foto."
+            }
+          }
+        },
+        "Front desk constantly interrupted by 'Is my car ready?' calls": {
+          "en": "Front desk constantly interrupted by 'Is my car ready?' calls",
+          "es": "Recepción saturada de llamadas preguntando por el estatus del auto",
+          "frictions": {
+            "Service advisors spend half their day answering repeat status calls": {
+              "en": "Service advisors spend half their day answering repeat status calls",
+              "es": "Los asesores pasan medio día respondiendo llamadas de estatus",
+              "hoursLost": "10.0 hrs / week",
+              "financialImpact": "Front desk burnout",
+              "sheetTemplate": "AITech Workshop WhatsApp Status Broadcast Log",
+              "whatsappScript": "Su vehículo sigue en diagnóstico. Le avisaremos en cuanto esté listo."
+            },
+            "Customers arriving unannounced before vehicles are fully reassembled": {
+              "en": "Customers arriving unannounced before vehicles are fully reassembled",
+              "es": "Clientes llegan sin avisar antes de que la unidad esté armada",
+              "hoursLost": "4.0 hrs / week",
+              "financialImpact": "Customer friction",
+              "sheetTemplate": "AITech Workshop Pickup Notification Board",
+              "whatsappScript": "Su unidad está en fase final de armado, le avisaremos al concluir."
+            }
+          }
+        },
+        "Core returns and warranty part tracking managed on sticky notes": {
+          "en": "Core returns and warranty part tracking managed on sticky notes",
+          "es": "Devoluciones de cascos y garantías llevadas en papeles autoadhesivos",
+          "frictions": {
+            "Expired warranty cores and uncredited returns sitting on shop shelves": {
+              "en": "Expired warranty cores and uncredited returns sitting on shop shelves",
+              "es": "Cascos y garantías vencidas acumuladas en estantes del taller",
+              "hoursLost": "4.0 hrs / week",
+              "financialImpact": "$600 / mo lost credit",
+              "sheetTemplate": "AITech Workshop Warranty & Core Return Tracker",
+              "whatsappScript": "Reporte de devolución de casco para pieza #[Número]."
+            },
+            "Supplier warranty claim paperwork rejected due to missing core tags": {
+              "en": "Supplier warranty claim paperwork rejected due to missing core tags",
+              "es": "Garantías rechazadas con proveedores por falta de etiquetas de casco",
+              "hoursLost": "3.5 hrs / week",
+              "financialImpact": "Uncredited warranty costs",
+              "sheetTemplate": "AITech Workshop Warranty Claim Documentation Log",
+              "whatsappScript": "Validando etiqueta de garantía para pieza defectuosa."
+            }
+          }
+        }
+      }
+    },
+    "Local Trades & Contracting": {
+      "en": "Local Trades & Contracting",
+      "es": "Contratistas y Oficios Locales",
+      "leaks": {
+        "Estimates emailed to prospective clients get buried and never answered": {
+          "en": "Estimates emailed to prospective clients get buried and never answered",
+          "es": "Presupuestos por correo se pierden sin respuesta del cliente",
+          "frictions": {
+            "Email quotes lack mobile immediacy; contractors lose bids to fasttexters": {
+              "en": "Email quotes lack mobile immediacy; contractors lose bids to fasttexters",
+              "es": "Los correos pierden inmediatez; se pierden trabajos ante la competencia",
+              "hoursLost": "7.0 hrs / week",
+              "financialImpact": "$3,200 / mo lost bids",
+              "sheetTemplate": "AITech Workshop Bid Follow-Up Board",
+              "whatsappScript": "Hola, ¿pudo revisar el presupuesto enviado? Quedamos a sus órdenes."
+            },
+            "Homeowners request quotes on the spot while contractors are on ladders": {
+              "en": "Homeowners request quotes on the spot while contractors are on ladders",
+              "es": "Clientes piden cotizaciones en el momento mientras el contratista trabaja",
+              "hoursLost": "5.5 hrs / week",
+              "financialImpact": "Missed leads",
+              "sheetTemplate": "AITech Workshop Quick-Estimate Mobile Matrix",
+              "whatsappScript": "Estoy en obra ahora mismo, le envío presupuesto por la tarde."
+            }
+          }
+        },
+        "Unwritten change requests on job site lead to billing disputes": {
+          "en": "Unwritten change requests on job site lead to billing disputes",
+          "es": "Cambios verbales en obra generan discusiones al cobrar el saldo",
+          "frictions": {
+            "Extra work requested verbally on-site isn't signed off before execution": {
+              "en": "Extra work requested verbally on-site isn't signed off before execution",
+              "es": "Trabajos extra pedidos de palabra no se firman antes de ejecutarse",
+              "hoursLost": "6.0 hrs / week",
+              "financialImpact": "Unbilled labor leakage",
+              "sheetTemplate": "AITech Workshop Field Change Order Approval Sheet",
+              "whatsappScript": "Confirmando ajuste adicional en obra: [Detalle]. Costo: $[Monto]."
+            },
+            "Homeowners dispute material upgrade costs mentioned during casual site walk-throughs": {
+              "en": "Homeowners dispute material upgrade costs mentioned during casual site walk-throughs",
+              "es": "Clientes discuten costos de mejora mencionados en recorridos informales",
+              "hoursLost": "4.0 hrs / week",
+              "financialImpact": "Unbilled material leakage",
+              "sheetTemplate": "AITech Workshop Site Walk-Through Sign-Off Log",
+              "whatsappScript": "Confirmando actualización de material solicitada en visita."
+            }
+          }
+        },
+        "Juggling text messages and phone calls to coordinate subcontractors": {
+          "en": "Juggling text messages and phone calls to coordinate subcontractors",
+          "es": "Coordinar subcontratistas mediante llamadas y textos aislados",
+          "frictions": {
+            "Crews arrive late or double-booked due to lack of a master schedule board": {
+              "en": "Crews arrive late or double-booked due to lack of a master schedule board",
+              "es": "Cuadrillas llegan tarde o encimadas por falta de un calendario central",
+              "hoursLost": "8.0 hrs / week",
+              "financialImpact": "Scheduling conflicts",
+              "sheetTemplate": "AITech Workshop Master Project Calendar",
+              "whatsappScript": "Aviso de programación: Obra en [Dirección] inicia mañana."
+            },
+            "Subcontractor availability changes communicated last-minute via phone calls": {
+              "en": "Subcontractor availability changes communicated last-minute via phone calls",
+              "es": "Cambios de disponibilidad de subcontratistas avisados de último minuto",
+              "hoursLost": "5.0 hrs / week",
+              "financialImpact": "Project delays",
+              "sheetTemplate": "AITech Workshop Subcontractor Availability Tracker",
+              "whatsappScript": "Actualizando calendario de subcontratistas para esta semana."
+            }
+          }
+        },
+        "Running out to local hardware stores mid-day for forgotten materials": {
+          "en": "Running out to local hardware stores mid-day for forgotten materials",
+          "es": "Viajes de emergencia a la ferretería a mitad del día por olvidos",
+          "frictions": {
+            "Crews stand idle on site while leads make unplanned supply runs": {
+              "en": "Crews stand idle on site while leads make unplanned supply runs",
+              "es": "Las cuadrillas paran labores mientras el contratista va por materiales",
+              "hoursLost": "5.5 hrs / week",
+              "financialImpact": "Productivity hours lost",
+              "sheetTemplate": "AITech Workshop Job Site Material Checklist",
+              "whatsappScript": "Lista de materiales faltantes para obra [Nombre]: [Detalles]."
+            },
+            "Missing specialty fasteners or fittings discovered halfway through installation": {
+              "en": "Missing specialty fasteners or fittings discovered halfway through installation",
+              "es": "Falta de tornillería o piezas especiales descubierta a mitad de instalación",
+              "hoursLost": "4.0 hrs / week",
+              "financialImpact": "Install delays",
+              "sheetTemplate": "AITech Workshop Pre-Install Tool & Hardware Check",
+              "whatsappScript": "Verificando lista de herrajes antes de iniciar instalación."
+            }
+          }
+        },
+        "Equipment rental tracking and return dates managed in personal notebooks": {
+          "en": "Equipment rental tracking and return dates managed in personal notebooks",
+          "es": "Control de renta de equipo y fechas de devolución en libretas",
+          "frictions": {
+            "Overdue rental fees pile up because return reminders aren't automated": {
+              "en": "Overdue rental fees pile up because return reminders aren't automated",
+              "es": "Se acumulan cargos por retraso en renta por falta de recordatorios",
+              "hoursLost": "4.5 hrs / week",
+              "financialImpact": "$800 / mo late fees",
+              "sheetTemplate": "AITech Workshop Equipment Rental Tracker",
+              "whatsappScript": "Aviso de devolución: Equipo rentado vence mañana."
+            },
+            "Rental tools misplaced across multiple job sites without asset tagging": {
+              "en": "Rental tools misplaced across multiple job sites without asset tagging",
+              "es": "Herramientas de renta extraviadas en diferentes obras sin etiquetas",
+              "hoursLost": "3.5 hrs / week",
+              "financialImpact": "Replacement costs",
+              "sheetTemplate": "AITech Workshop Tool Asset Tracking Sheet",
+              "whatsappScript": "Reporte de ubicación de herramienta rentada en obra."
+            }
+          }
+        }
+      }
+    },
+    "Catering & Food Service": {
+      "en": "Catering & Food Service",
+      "es": "Catering y Servicios de Alimentos",
+      "leaks": {
+        "Allergen & dietary notes written on kitchen sticky notes": {
+          "en": "Allergen & dietary notes written on kitchen sticky notes",
+          "es": "Notas de alergias y menú especial escritas en papelitos de cocina",
+          "frictions": {
+            "Sticky notes in prep kitchens lead to cross-contamination and remade orders": {
+              "en": "Sticky notes in prep kitchens lead to cross-contamination and remade orders",
+              "es": "Notas en papel en cocinas causan errores y platillos devueltos",
+              "hoursLost": "5.0 hrs / week",
+              "financialImpact": "$600 / mo remade orders",
+              "sheetTemplate": "AITech Workshop Catering Order & Allergen Sheet",
+              "whatsappScript": "Confirmando pedido de catering y restricciones para el [Fecha]."
+            },
+            "Kitchen staff missing verbal dietary modifications during weekend rushes": {
+              "en": "Kitchen staff missing verbal dietary modifications during weekend rushes",
+              "es": "Personal de cocina pasa por alto cambios verbales en horas pico",
+              "hoursLost": "4.0 hrs / week",
+              "financialImpact": "Remade food waste",
+              "sheetTemplate": "AITech Workshop Kitchen Prep Allergen Board",
+              "whatsappScript": "Revisión de restricciones especiales para evento del fin de semana."
+            }
+          }
+        },
+        "Guest count changes received 24 hours before event throwing off prep math": {
+          "en": "Guest count changes received 24 hours before event throwing off prep math",
+          "es": "Cambios de invitados a 24 horas del evento que descuadran compras",
+          "frictions": {
+            "Manual recipe adjustments under pressure lead to food waste or shortages": {
+              "en": "Manual recipe adjustments under pressure lead to food waste or shortages",
+              "es": "Ajustes de receta bajo presión generan mermas o falta de comida",
+              "hoursLost": "4.5 hrs / week",
+              "financialImpact": "Food waste & loss",
+              "sheetTemplate": "AITech Workshop Portion & Ingredient Scaler",
+              "whatsappScript": "Nuevo número de invitados confirmado: [Número]. Ajustando inventario."
+            },
+            "Last-minute headcount increases requiring emergency grocery store runs": {
+              "en": "Last-minute headcount increases requiring emergency grocery store runs",
+              "es": "Aumento de última hora que exige compras de emergencia en tienda",
+              "hoursLost": "3.5 hrs / week",
+              "financialImpact": "Purchasing inefficiency",
+              "sheetTemplate": "AITech Workshop Emergency Ingredient Scaler",
+              "whatsappScript": "Aviso de ajuste de porciones por incremento de invitados."
+            }
+          }
+        },
+        "Verbal produce delivery check-ins without structured receiving logs": {
+          "en": "Verbal produce delivery check-ins without structured receiving logs",
+          "es": "Recepción de producto verbal sin bitácoras estructuradas",
+          "frictions": {
+            "Incoming wholesale food deliveries checked in by memory without written sign-off": {
+              "en": "Incoming wholesale food deliveries checked in by memory without written sign-off",
+              "es": "Mercancía de proveedores recibida de memoria sin comprobante escrito",
+              "hoursLost": "3.5 hrs / week",
+              "financialImpact": "Spoilage & pricing disputes",
+              "sheetTemplate": "AITech Workshop Kitchen Receiving Log",
+              "whatsappScript": "Pedido de proveedor recibido y verificado en cocina."
+            },
+            "Quality defects on incoming produce discovered too late during prep": {
+              "en": "Quality defects on incoming produce discovered too late during prep",
+              "es": "Defectos de calidad en verdura descubiertos tarde al preparar",
+              "hoursLost": "3.0 hrs / week",
+              "financialImpact": "Produce wastage",
+              "sheetTemplate": "AITech Workshop Produce Quality Inspection Log",
+              "whatsappScript": "Reporte de calidad de hortalizas recibidas de proveedor."
+            }
+          }
+        },
+        "Weekend event prep schedules planned on messy whiteboards": {
+          "en": "Weekend event prep schedules planned on messy whiteboards",
+          "es": "Horarios de preparación para eventos planeados en pizarrones borrables",
+          "frictions": {
+            "Kitchen prep timelines get wiped away or misread by weekend shift staff": {
+              "en": "Kitchen prep timelines get wiped away or misread by weekend shift staff",
+              "es": "Los tiempos de cocina en pizarrón se borran o confunden el fin de semana",
+              "hoursLost": "4.0 hrs / week",
+              "financialImpact": "Kitchen stress & delays",
+              "sheetTemplate": "AITech Workshop Weekend Prep Schedule Master",
+              "whatsappScript": "Cronograma de preparación para evento enviado al equipo."
+            },
+            "Shift handovers lacking clear documentation of prep completion status": {
+              "en": "Shift handovers lacking clear documentation of prep completion status",
+              "es": "Cambios de turno sin registro claro de avance de preparación",
+              "hoursLost": "3.0 hrs / week",
+              "financialImpact": "Operational friction",
+              "sheetTemplate": "AITech Workshop Kitchen Shift Handover Log",
+              "whatsappScript": "Reporte de avance de preparación para siguiente turno."
+            }
+          }
+        },
+        "Delivery route coordination for catering drop-offs handled via individual driver texts": {
+          "en": "Delivery route coordination for catering drop-offs handled via individual driver texts",
+          "es": "Rutas de entrega coordinadas mediante mensajes individuales a choferes",
+          "frictions": {
+            "Drivers get lost or delayed because drop-off addresses are texted separately": {
+              "en": "Drivers get lost or delayed because drop-off addresses are texted separately",
+              "es": "Los choferes se pierden porque las direcciones se envían por separado",
+              "hoursLost": "5.0 hrs / week",
+              "financialImpact": "Late event deliveries",
+              "sheetTemplate": "AITech Workshop Catering Delivery Route Dispatch",
+              "whatsappScript": "Ruta de entrega confirmada para evento en [Dirección]."
+            },
+            "Equipment pickup and return logistics after events tracked haphazardly": {
+              "en": "Equipment pickup and return logistics after events tracked haphazardly",
+              "es": "Logística de recogida de equipo post-evento sin control fijo",
+              "hoursLost": "3.5 hrs / week",
+              "financialImpact": "Lost serving equipment",
+              "sheetTemplate": "AITech Workshop Catering Equipment Return Log",
+              "whatsappScript": "Verificando retorno de equipo de banquete."
+            }
+          }
+        }
+      }
+    }
+  }
+}
