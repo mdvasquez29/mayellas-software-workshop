@@ -263,11 +263,62 @@ export const SOLUTIONS_DATA: Record<string, SolutionData> = {
       ],
       systemPrompt: `Vibe Coding Prompt: "Build a kitchen timeline and shift scheduling dashboard for catering events."`
     }
+  },
+
+  // 6. CLINICS, PRINT SHOPS & FRONT-DESK SERVICES
+  "services-prob1": {
+    title: "Automated WhatsApp Appointment & Reminder Queue",
+    category: "Clinics, Print Shops & Front-Desk Services",
+    pricing: { solo: 350, small: 450, enterprise: 600 },
+    apiCosts: "~$2 – $5/mo (WhatsApp automated message volume)",
+    turnkeySummary: "Syncs daily schedules from Google Sheets to send automated 24-hour bilingual WhatsApp appointment confirmations and one-tap reschedule replies.",
+    demoUrl: "https://drive.google.com/file/d/1BUlM5emH77rHRnMz1Z5IlC2iRX1sVVBp/view?usp=sharing",
+    diyBlueprint: {
+      steps: [
+        "Set up a daily appointment schedule tab in Google Sheets with client phone numbers and appointment times.",
+        "Connect an automated Apps Script or Make.com trigger to dispatch 24-hour bilingual WhatsApp reminders.",
+        "Log 'Confirmed' or 'Reschedule' replies straight back into your front-desk sheet."
+      ],
+      systemPrompt: `Vibe Coding Prompt: "Build a front-desk appointment confirmation dashboard synced with Google Sheets that triggers bilingual WhatsApp reminders 24 hours before scheduled visits."`
+    }
+  },
+  "services-prob2": {
+    title: "Print & Custom Job Proof Tracker",
+    category: "Clinics, Print Shops & Front-Desk Services",
+    pricing: { solo: 350, small: 450, enterprise: 600 },
+    apiCosts: "$0/mo (Google Drive + Google Sheets integration)",
+    turnkeySummary: "Centralizes artwork files, proof approvals, and production specs in one searchable Google Sheets & Drive tracker so custom jobs never stall.",
+    demoUrl: "https://drive.google.com/file/d/1BUlM5emH77rHRnMz1Z5IlC2iRX1sVVBp/view?usp=sharing",
+    diyBlueprint: {
+      steps: [
+        "Create a job-intake form that auto-files customer artwork into organized Google Drive job folders.",
+        "Log job specs, due dates, and proof approval timestamps into a live Google Sheets production board.",
+        "Send a 1-click WhatsApp proof approval link directly to the client."
+      ],
+      systemPrompt: `Vibe Coding Prompt: "Build a custom print and service job tracker that links artwork proofs in Google Drive to a live Google Sheets status board with 1-click client approval links."`
+    }
+  },
+  "services-prob3": {
+    title: "1-Click Front-Desk Pickup & Status Broadcaster",
+    category: "Clinics, Print Shops & Front-Desk Services",
+    pricing: { solo: 350, small: 450, enterprise: 600 },
+    apiCosts: "~$2 – $5/mo (WhatsApp notification pings)",
+    turnkeySummary: "Replaces repetitive 'Is my order/result ready?' phone calls with a 1-click WhatsApp status button tied directly to your front-desk tracker.",
+    demoUrl: "https://drive.google.com/file/d/1BUlM5emH77rHRnMz1Z5IlC2iRX1sVVBp/view?usp=sharing",
+    diyBlueprint: {
+      steps: [
+        "Build a clean front-desk queue board displaying active orders, lab results, or print jobs.",
+        "Add a 1-click 'Ready for Pickup' button next to each client row.",
+        "Trigger an instant bilingual WhatsApp message with pickup hours and location details."
+      ],
+      systemPrompt: `Vibe Coding Prompt: "Build a front-desk status board with 1-click bilingual WhatsApp pickup notifications to eliminate repetitive customer status phone calls."`
+    }
   }
 };
 
 export default function Home() {
   const [lang, setLang] = useState<"en" | "es">("en");
+  const [currency, setCurrency] = useState<"USD" | "MXN">("USD");
   const [view, setView] = useState<string>("home"); // "home" | "quiz" | "results" | "bio"
 
   // Quiz States
@@ -290,9 +341,19 @@ export default function Home() {
   const [businessName, setBusinessName] = useState<string>("");
   const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
 
-  // External Links
+  // External Links & Exchange Baseline
   const RESUME_URL = "https://drive.google.com/file/d/1s8MICQ8nOu_fvWwZiGUTLKdZpZEMiBqT/view?usp=sharing";
   const DEMO_STUDIO_URL = "https://drive.google.com/file/d/1BUlM5emH77rHRnMz1Z5IlC2iRX1sVVBp/view?usp=sharing";
+  const CALENDAR_BOOKING_URL = "https://calendar.app.google/nhtmMAaZBvMPfSDL9";
+  const USD_TO_MXN_RATE = 20; // Conservative border corridor exchange rate ($1 USD = $20 MXN)
+  const HOURLY_DRAG_RATE_USD = 35; // BLS Imperial Valley loaded admin/supervisory baseline
+
+  const formatMoney = (usdAmount: number) => {
+    if (currency === "MXN") {
+      return `$${Math.round(usdAmount * USD_TO_MXN_RATE).toLocaleString()} MXN`;
+    }
+    return `$${usdAmount.toLocaleString()} USD`;
+  };
 
   // Dynamic pricing based on team size & solution lookup
   const getSelectedSolutionKey = () => {
@@ -301,6 +362,7 @@ export default function Home() {
     else if (industry === "ag") indPrefix = "ag";
     else if (industry === "trades") indPrefix = "trades";
     else if (industry === "catering") indPrefix = "catering";
+    else if (industry === "services") indPrefix = "services";
 
     return `${indPrefix}-${bottleneck}`;
   };
@@ -310,11 +372,29 @@ export default function Home() {
 
   const getTeamPricing = () => {
     if (teamSize === "solo") {
-      return { setup: `$${activeSolutionData.pricing.solo}`, multiplier: 1, descEn: "Solo / Small Team (1–3 people)", descEs: "Operación Individual (1-3 personas)" };
+      return {
+        rawSetupUsd: activeSolutionData.pricing.solo,
+        setup: formatMoney(activeSolutionData.pricing.solo),
+        multiplier: 1,
+        descEn: "Solo / Small Team (1–3 people)",
+        descEs: "Operación Individual (1–3 personas)"
+      };
     } else if (teamSize === "small") {
-      return { setup: `$${activeSolutionData.pricing.small}`, multiplier: 2.2, descEn: "Growing Team (4–15 people)", descEs: "Equipo Pequeño / Taller (4-15 personas)" };
+      return {
+        rawSetupUsd: activeSolutionData.pricing.small,
+        setup: formatMoney(activeSolutionData.pricing.small),
+        multiplier: 2.2,
+        descEn: "Growing Team (4–15 people)",
+        descEs: "Equipo Pequeño / Taller (4–15 personas)"
+      };
     } else {
-      return { setup: `$${activeSolutionData.pricing.enterprise}`, multiplier: 4.5, descEn: "Fleet / Enterprise (15+ people)", descEs: "Flota / Empresa (15+ personas)" };
+      return {
+        rawSetupUsd: activeSolutionData.pricing.enterprise,
+        setup: formatMoney(activeSolutionData.pricing.enterprise),
+        multiplier: 4.5,
+        descEn: "Fleet / Enterprise (15+ people)",
+        descEs: "Flota / Empresa (15+ personas)"
+      };
     }
   };
 
@@ -322,13 +402,16 @@ export default function Home() {
   const mult = pricingMeta.multiplier;
 
   const getQuizResult = () => {
+    const hoursLost = Math.round(30 * mult);
+    const financialDragUsd = hoursLost * HOURLY_DRAG_RATE_USD;
     return {
       title: activeSolutionData.category,
       solutionName: activeSolutionData.title,
       description: activeSolutionData.turnkeySummary,
       apiCost: activeSolutionData.apiCosts,
-      hoursLost: Math.round(30 * mult),
-      financialDrag: Math.round(1100 * mult),
+      hoursLost,
+      financialDragUsd,
+      financialDragFormatted: formatMoney(financialDragUsd),
       setupFee: pricingMeta.setup
     };
   };
@@ -360,6 +443,12 @@ export default function Home() {
           { id: "prob1", label: lang === "en" ? "1. Estimates emailed to homeowners get buried" : "1. Presupuestos por correo se pierden sin respuesta" },
           { id: "prob2", label: lang === "en" ? "2. Juggling texts to coordinate subcontractors" : "2. Coordinar subcontratistas mediante textos aislados" },
           { id: "prob3", label: lang === "en" ? "3. Verbal change requests on-site leading to disputes" : "3. Cambios verbales en obra generan discusiones" }
+        ];
+      case "services":
+        return [
+          { id: "prob1", label: lang === "en" ? "1. Front desk bogged down confirming appointments manually" : "1. Recepción saturada confirmando citas manualmente" },
+          { id: "prob2", label: lang === "en" ? "2. Print & custom job proofs scattered across messages" : "2. Pruebas de impresión y pedidos dispersos en chats" },
+          { id: "prob3", label: lang === "en" ? "3. Repetitive 'Is my order/result ready?' status phone calls" : "3. Llamadas repetitivas preguntando si el pedido ya está listo" }
         ];
       default:
         return [
@@ -413,7 +502,8 @@ export default function Home() {
       industryLabel: result.title,
       teamDescription,
       monthlyHoursLost: result.hoursLost,
-      monthlyFinancialImpact: result.financialDrag,
+      monthlyFinancialImpact: result.financialDragUsd,
+      currencySelected: currency,
       solutionDescription: result.description,
       apiCost: result.apiCost,
       solution: result.solutionName,
@@ -424,7 +514,7 @@ export default function Home() {
         `Team size: ${teamDescription}`,
         `Bottleneck: ${selectedBottleneck}`,
         `Hours lost per month: ${result.hoursLost}`,
-        `Estimated monthly impact: $${result.financialDrag}`,
+        `Estimated monthly impact: ${result.financialDragFormatted}`,
         `Selected solution: ${result.solutionName}`,
         `Solution details: ${result.description}`,
         `Estimated fee: ${result.setupFee}`,
@@ -498,8 +588,24 @@ export default function Home() {
           </button>
           
           <div className="flex items-center gap-1 bg-neutral-900 border border-neutral-800 p-0.5 rounded-full ml-1">
-            <button onClick={() => setLang("en")} className={`px-2 py-0.5 text-[10px] font-bold rounded-full ${lang === "en" ? "bg-white text-black" : "text-neutral-400"}`}>EN</button>
-            <button onClick={() => setLang("es")} className={`px-2 py-0.5 text-[10px] font-bold rounded-full ${lang === "es" ? "bg-white text-black" : "text-neutral-400"}`}>ES</button>
+            <button
+              onClick={() => {
+                setLang("en");
+                setCurrency("USD");
+              }}
+              className={`px-2 py-0.5 text-[10px] font-bold rounded-full ${lang === "en" ? "bg-white text-black" : "text-neutral-400"}`}
+            >
+              EN
+            </button>
+            <button
+              onClick={() => {
+                setLang("es");
+                setCurrency("MXN");
+              }}
+              className={`px-2 py-0.5 text-[10px] font-bold rounded-full ${lang === "es" ? "bg-white text-black" : "text-neutral-400"}`}
+            >
+              ES
+            </button>
           </div>
         </div>
       </header>
@@ -617,7 +723,8 @@ export default function Home() {
                 { id: "logistics", label: lang === "en" ? "Cross-Border Logistics & Freight" : "Logística y Transporte Transfronterizo" },
                 { id: "ag", label: lang === "en" ? "Agribusiness & Produce Packing" : "Agrícola y Empaque de Hortalizas" },
                 { id: "trades", label: lang === "en" ? "Local Trades & Contracting" : "Oficios y Contratistas" },
-                { id: "catering", label: lang === "en" ? "Catering & Food Service" : "Catering y Servicios de Alimentos" }
+                { id: "catering", label: lang === "en" ? "Catering & Food Service" : "Catering y Servicios de Alimentos" },
+                { id: "services", label: lang === "en" ? "Clinics, Print Shops & Front-Desk Services" : "Clínicas, Imprentas y Servicios de Mostrador" }
               ].map((item) => (
                 <button
                   key={item.id}
@@ -642,363 +749,305 @@ export default function Home() {
 
             <div className="grid grid-cols-3 gap-2">
               {[
-                { id: "solo", label: lang === "en" ? "Solo (1–3)" : "Solo (1-3)" },
-                { id: "small", label: lang === "en" ? "Growing (4–15)" : "Pequeño (4-15)" },
-                { id: "enterprise", label: lang === "en" ? "Enterprise (15+)" : "Flota (15+)" }
-              ].map((item) => (
+                { id: "solo", label: lang === "en" ? "1–3 People" : "1–3 Personas" },
+                { id: "small", label: lang === "en" ? "4–15 People" : "4–15 Personas" },
+                { id: "enterprise", label: lang === "en" ? "15+ People" : "15+ Personas" }
+              ].map((size) => (
                 <button
-                  key={item.id}
-                  onClick={() => setTeamSize(item.id)}
-                  className={`p-2.5 rounded-xl border text-center text-xs font-semibold transition-all ${
-                    teamSize === item.id ? "bg-neutral-900 border-white text-white" : "bg-neutral-950 border-neutral-900 text-neutral-400"
+                  key={size.id}
+                  onClick={() => setTeamSize(size.id)}
+                  className={`p-3 rounded-xl border text-center text-xs font-semibold transition-all ${
+                    teamSize === size.id ? "bg-neutral-900 border-white text-white" : "bg-neutral-950 border-neutral-900 text-neutral-400"
                   }`}
                 >
-                  {item.label}
+                  {size.label}
                 </button>
               ))}
             </div>
 
             <div className="space-y-1">
               <h2 className="text-base font-bold text-white">
-                {lang === "en" ? "3. What slows you down the most?" : "3. ¿Qué es lo que más te quita tiempo?"}
+                {lang === "en" ? "3. Pick your biggest daily bottleneck:" : "3. Elige tu mayor cuello de botella diario:"}
               </h2>
             </div>
 
             <div className="grid grid-cols-1 gap-2">
-              {headaches.map((item) => (
+              {headaches.map((h) => (
                 <button
-                  key={item.id}
-                  onClick={() => setBottleneck(item.id)}
+                  key={h.id}
+                  onClick={() => setBottleneck(h.id)}
                   className={`p-3 rounded-xl border text-left text-xs font-semibold transition-all ${
-                    bottleneck === item.id ? "bg-neutral-900 border-white text-white" : "bg-neutral-950 border-neutral-900 text-neutral-400"
+                    bottleneck === h.id ? "bg-neutral-900 border-white text-white" : "bg-neutral-950 border-neutral-900 text-neutral-400"
                   }`}
                 >
-                  {item.label}
+                  {h.label}
                 </button>
               ))}
             </div>
 
-            <div className="pt-2">
-              <button
-                onClick={() => setView("results")}
-                className="w-full py-3.5 bg-white hover:bg-neutral-200 text-black font-bold rounded-xl shadow-lg transition-all text-xs tracking-wide"
-              >
-                {lang === "en" ? "Calculate My ROI & Solution →" : "Calcular mi ROI y Solución →"}
-              </button>
-            </div>
+            <button
+              onClick={() => {
+                setActiveTab("savings");
+                setView("results");
+              }}
+              className="w-full py-3.5 bg-white hover:bg-neutral-200 text-black font-bold rounded-xl shadow-lg transition-all text-xs tracking-wide"
+            >
+              {lang === "en" ? "View Time & Financial Savings →" : "Ver Ahorro de Tiempo y Dinero →"}
+            </button>
           </div>
         )}
 
         {/* RESULTS VIEW */}
         {view === "results" && (
-          <div className="space-y-6 max-w-md mx-auto w-full py-2 animate-fadeIn">
-            
-            {/* Tabs Header */}
-            <div className="flex bg-neutral-900 p-1 rounded-xl border border-neutral-800">
-              <button
-                onClick={() => setActiveTab("savings")}
-                className={`flex-1 py-2 text-xs font-bold rounded-lg transition-all ${
-                  activeTab === "savings" ? "bg-white text-black shadow" : "text-neutral-400 hover:text-white"
-                }`}
-              >
-                {lang === "en" ? "1. Your Operational Leaks" : "1. Tus Fugas Operativas"}
-              </button>
-              <button
-                onClick={() => setActiveTab("request")}
-                className={`flex-1 py-2 text-xs font-bold rounded-lg transition-all ${
-                  activeTab === "request" ? "bg-white text-black shadow" : "text-neutral-400 hover:text-white"
-                }`}
-              >
-                {lang === "en" ? "2. Request Solution" : "2. Solicitar Solución"}
-              </button>
+          <div className="space-y-5 max-w-lg mx-auto w-full py-2 animate-fadeIn">
+            {/* Top Bar: Tabs + USD/MXN Currency Switcher */}
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <div className="flex gap-2">
+                <button
+                  onClick={() => setActiveTab("savings")}
+                  className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all ${
+                    activeTab === "savings" ? "bg-white text-black" : "bg-neutral-900 text-neutral-400 hover:text-white"
+                  }`}
+                >
+                  {lang === "en" ? "1. Savings & Tool Blueprint" : "1. Ahorros y Herramienta"}
+                </button>
+                <button
+                  onClick={() => setActiveTab("request")}
+                  className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all ${
+                    activeTab === "request" ? "bg-white text-black" : "bg-neutral-900 text-neutral-400 hover:text-white"
+                  }`}
+                >
+                  {lang === "en" ? "2. Request Free Demo & Call" : "2. Pedir Demo y Llamada"}
+                </button>
+              </div>
+
+              <div className="flex items-center gap-1 bg-neutral-900 border border-neutral-800 p-0.5 rounded-lg text-[10px] font-mono">
+                <button
+                  onClick={() => setCurrency("USD")}
+                  className={`px-2 py-1 rounded-md font-bold ${currency === "USD" ? "bg-white text-black" : "text-neutral-400"}`}
+                >
+                  USD $
+                </button>
+                <button
+                  onClick={() => setCurrency("MXN")}
+                  className={`px-2 py-1 rounded-md font-bold ${currency === "MXN" ? "bg-white text-black" : "text-neutral-400"}`}
+                >
+                  MXN $
+                </button>
+              </div>
             </div>
 
-            {/* TAB 1: SAVINGS & SOLUTION BREAKDOWN */}
             {activeTab === "savings" && (
-              <div className="space-y-4 animate-fadeIn">
-                <div className="p-4 bg-neutral-950 border border-neutral-900 rounded-2xl space-y-3">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <span className="text-[10px] font-mono text-neutral-500 uppercase tracking-wider">{result.title}</span>
-                      <h3 className="text-base font-bold text-white">{result.solutionName}</h3>
-                    </div>
+              <div className="space-y-4">
+                {/* Metrics Card */}
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="p-4 bg-neutral-950 border border-neutral-900 rounded-2xl">
+                    <span className="text-[10px] text-neutral-400 font-mono uppercase">
+                      {lang === "en" ? "Estimated Time Lost" : "Tiempo Perdido Est."}
+                    </span>
+                    <p className="text-2xl font-extrabold text-amber-400 mt-1">{result.hoursLost} hrs / mo</p>
+                    <p className="text-[10px] text-neutral-500 mt-0.5">
+                      {lang === "en" ? pricingMeta.descEn : pricingMeta.descEs}
+                    </p>
                   </div>
 
-                  <p className="text-xs text-neutral-300 leading-relaxed">
-                    {result.description}
-                  </p>
-
-                  <div className="grid grid-cols-2 gap-2 pt-2 border-t border-neutral-900 text-xs">
-                    <div className="bg-neutral-900/60 p-2.5 rounded-xl border border-neutral-800/50">
-                      <p className="text-[10px] text-neutral-400 font-mono">
-                        {lang === "en" ? "Est. Hours Wasted / Mo" : "Horas Pérdidas / Mes"}
-                      </p>
-                      <p className="text-sm font-bold text-red-400 mt-0.5">~{result.hoursLost} hrs</p>
-                    </div>
-                    <div className="bg-neutral-900/60 p-2.5 rounded-xl border border-neutral-800/50">
-                      <p className="text-[10px] text-neutral-400 font-mono">
-                        {lang === "en" ? "Monthly Financial Drag" : "Impacto Financiero / Mes"}
-                      </p>
-                      <p className="text-sm font-bold text-red-400 mt-0.5">${result.financialDrag} USD</p>
-                    </div>
-                  </div>
-
-                  {/* Calculation Breakdown & Math Explanation with BLS / IDC References */}
-                  <div className="pt-2 border-t border-neutral-900">
-                    <button
-                      onClick={() => setIsMathOpen(!isMathOpen)}
-                      className="w-full flex justify-between items-center text-[11px] font-mono text-neutral-400 hover:text-white py-1 transition-all"
-                    >
-                      <span>{lang === "en" ? "📊 How we calculate these numbers" : "📊 Cómo calculamos estos números"}</span>
-                      <span>{isMathOpen ? "▲" : "▼"}</span>
-                    </button>
-
-                    {isMathOpen && (
-                      <div className="p-3 mt-2 bg-neutral-900/80 border border-neutral-800 rounded-xl space-y-2 text-[11px] text-neutral-300">
-                        <p>
-                          {lang === "en"
-                            ? `• Team Multiplier: Based on your team size ("${pricingMeta.descEn}"), your operational scale multiplier is set at ${mult}x.`
-                            : `• Multiplicador de Equipo: Basado en el tamaño de tu equipo ("${pricingMeta.descEs}"), el multiplicador de escala operativa es de ${mult}x.`}
-                        </p>
-                        <p>
-                          {lang === "en"
-                            ? `• Administrative Drag Factor: ~15% to 20% of monthly operating hours spent on manual paperwork, phone tag, and duplicate data entry (referenced from small business workflow efficiency benchmarks and Salesforce Service Cloud / IDC "Work About Work" operational studies).`
-                            : `• Factor de Arrastre Administrativo: ~15% al 20% de las horas operativas mensuales gastadas en papeleo manual, llamadas y captura duplicada (referenciado de estudios de eficiencia de Salesforce e IDC).`}
-                        </p>
-                        <p>
-                          {lang === "en"
-                            ? `• Labor Cost Benchmark: U.S. Bureau of Labor Statistics (BLS) regional wage baselines & loaded supervisory/administrative cost averages (~$35/hr loaded cost for coordination and management time in border and agricultural corridors like Imperial County).`
-                            : `• Referencia de Costo Laboral: Basado en datos de la Oficina de Estadísticas Laborales de EE. UU. (BLS) y promedios de costos administrativos (~$35/hr en la región fronteriza del Valle Imperial).`}
-                        </p>
-                        <p className="font-mono text-emerald-400 pt-1">
-                          {lang === "en"
-                            ? `• Formula Used: ~${result.hoursLost} hrs lost/mo × $35/hr local operational drag baseline = ~$${result.financialDrag}/mo economic impact.`
-                            : `• Fórmula Usada: ~${result.hoursLost} hrs perdidas/mes × $35/hr base local = ~$${result.financialDrag}/mes impacto económico.`}
-                        </p>
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="pt-1 text-[11px] text-neutral-400 flex items-center justify-between font-mono">
-                    <span>{lang === "en" ? "Platform API Costs:" : "Costos API:"}</span>
-                    <span className="text-white">{result.apiCost}</span>
+                  <div className="p-4 bg-neutral-950 border border-neutral-900 rounded-2xl">
+                    <span className="text-[10px] text-neutral-400 font-mono uppercase">
+                      {lang === "en" ? "Monthly Labor Drag" : "Costo Mensual de Fricción"}
+                    </span>
+                    <p className="text-2xl font-extrabold text-red-400 mt-1">{result.financialDragFormatted} / mo</p>
+                    <p className="text-[10px] text-neutral-500 mt-0.5">
+                      {currency === "MXN"
+                        ? `≈ $${result.financialDragUsd.toLocaleString()} USD (TC: $${USD_TO_MXN_RATE} MXN)`
+                        : `≈ $${(result.financialDragUsd * USD_TO_MXN_RATE).toLocaleString()} MXN`}
+                    </p>
                   </div>
                 </div>
 
-                {/* DIY Blueprint Accordion Toggle with API Maintenance Note */}
-                <div className="border border-neutral-900 rounded-2xl bg-neutral-950 overflow-hidden">
+                {/* Transparent Math & Research Drawer */}
+                <div className="border border-neutral-800 rounded-xl bg-neutral-900/50 overflow-hidden">
                   <button
-                    onClick={() => setIsDiyOpen(!isDiyOpen)}
-                    className="w-full p-3.5 flex justify-between items-center text-left text-xs font-bold text-neutral-200 hover:bg-neutral-900/50 transition-all"
+                    onClick={() => setIsMathOpen(!isMathOpen)}
+                    className="w-full p-3 text-left text-xs font-mono text-neutral-300 hover:text-white flex justify-between items-center transition-colors"
                   >
-                    <span>{lang === "en" ? "🛠️ Want to build this yourself? View DIY Blueprint" : "🛠️ ¿Quieres construirlo tú mismo? Ver Guía DIY"}</span>
-                    <span className="text-neutral-400">{isDiyOpen ? "▲" : "▼"}</span>
+                    <span>📊 {lang === "en" ? "How these numbers were calculated" : "Cómo se calcularon estos números"}</span>
+                    <span>{isMathOpen ? "▲" : "▼"}</span>
                   </button>
 
-                  {isDiyOpen && (
-                    <div className="p-4 border-t border-neutral-900 space-y-3 text-xs text-neutral-300 bg-black/40">
-                      <p className="text-[11px] text-neutral-400">
-                        {lang === "en" ? "Step-by-step architecture to build this solution on your own:" : "Arquitectura paso a paso para construir esta solución por tu cuenta:"}
-                      </p>
-                      <ul className="space-y-2">
-                        {activeSolutionData.diyBlueprint.steps.map((step, idx) => (
-                          <li key={idx} className="flex gap-2 items-start">
-                            <span className="font-mono text-emerald-400 font-bold">{idx + 1}.</span>
-                            <span>{step}</span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      {/* API & System Maintenance Notice */}
-                      <div className="p-2.5 bg-neutral-900/80 border border-neutral-800 rounded-xl text-[11px] text-neutral-400 space-y-1">
-                        <span className="font-bold text-white">⚠️ Important Maintenance Note on APIs:</span>
-                        <p>
-                          {lang === "en"
-                            ? "While custom web tools eliminate monthly platform subscriptions, external communication APIs (such as WhatsApp/Twilio messaging or AI OCR vision tokens) require active management. API provider rate limits, webhook endpoints, or token pricing updates may occasionally require minor code maintenance to keep automated notifications running smoothly."
-                            : "Aunque las herramientas web personalizadas eliminan las suscripciones mensuales de plataforma, las APIs de comunicación externa (como WhatsApp/Twilio o tokens de IA) requieren mantenimiento periódico ante actualizaciones de proveedores y endpoints."}
-                        </p>
+                  {isMathOpen && (
+                    <div className="p-3.5 border-t border-neutral-800 space-y-2.5 text-xs text-neutral-300 leading-relaxed bg-black/40">
+                      <div className="p-2.5 rounded-lg bg-amber-950/30 border border-amber-800/40 text-amber-200 text-[11px]">
+                        <strong className="font-mono uppercase tracking-wider block mb-0.5">
+                          {lang === "en" ? "Note: These are estimates" : "Nota: Estos son estimados"}
+                        </strong>
+                        {lang === "en"
+                          ? "All hours lost, monthly financial drag figures, and setup fees shown here are estimates—not guaranteed savings or exact quotes. Actual results depend on your staff workflow, message volume, and how quickly new steps are adopted."
+                          : "Todas las horas perdidas, cifras de fricción mensual y costos de instalación aquí mostrados son estimados, no ahorros garantizados ni cotizaciones fijas. Los resultados reales dependen del flujo de tu equipo, volumen de mensajes y adopción."}
                       </div>
-
-                      <div className="pt-2">
-                        <p className="text-[10px] font-mono text-neutral-400 mb-1">
-                          {lang === "en" ? "AI Vibe Coding Prompt for Cursor / Gemini:" : "Prompt de Vibe Coding para Cursor / Gemini:"}
-                        </p>
-                        <div className="p-2.5 bg-neutral-900 border border-neutral-800 rounded-xl font-mono text-[11px] text-neutral-200 select-all">
-                          {activeSolutionData.diyBlueprint.systemPrompt}
-                        </div>
-                        <button
-                          onClick={handleCopyPrompt}
-                          className="mt-2 px-3 py-1.5 bg-neutral-800 hover:bg-neutral-700 text-white rounded-lg text-[10px] font-mono transition-all"
-                        >
-                          {copiedPrompt ? "✓ Copied!" : "Copy Prompt 📋"}
-                        </button>
+                      <p>
+                        {lang === "en"
+                          ? "Our estimates are modeled specifically for the Imperial Valley & Mexicali economic corridor using conservative regional labor cost baselines and workflow friction studies:"
+                          : "Nuestros cálculos están modelados específicamente para el corredor económico del Valle Imperial y Mexicali utilizando costos laborales regionales conservadores y estudios de fricción operativa:"}
+                      </p>
+                      <div className="space-y-1 font-mono text-[11px] text-neutral-400">
+                        <p>• <strong className="text-white">{lang === "en" ? "Industry:" : "Industria:"}</strong> {result.title}</p>
+                        <p>• <strong className="text-white">{lang === "en" ? "Team Scale:" : "Equipo:"}</strong> {lang === "en" ? pricingMeta.descEn : pricingMeta.descEs} ({mult}x)</p>
+                        <p>• <strong className="text-white">{lang === "en" ? "Drag Benchmark:" : "Fricción:"}</strong> ~15%–20% monthly operating hours on manual paperwork & phone tag (Salesforce / IDC Work About Work benchmarks).</p>
+                        <p>• <strong className="text-white">{lang === "en" ? "Labor Baseline:" : "Costo Base:"}</strong> U.S. Bureau of Labor Statistics (BLS) Imperial County supervisory/admin average (~$35 USD/hr).</p>
+                        <p>• <strong className="text-white">{lang === "en" ? "Exact Formula:" : "Fórmula Exacta:"}</strong> {result.hoursLost} hrs/mo × $35/hr = ${result.financialDragUsd.toLocaleString()} USD/mo ({formatMoney(result.financialDragUsd)}/mo).</p>
                       </div>
                     </div>
                   )}
                 </div>
 
-                {/* Dashboard of Product Demos Link */}
-                <div className="p-3 bg-neutral-950 border border-neutral-900 rounded-xl flex items-center justify-between text-xs">
-                  <span className="text-neutral-400">{lang === "en" ? "Want to see some of the tech live?" : "¿Quieres probar la tecnología en vivo?"}</span>
-                  <a
-                    href={DEMO_STUDIO_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-bold text-white hover:text-emerald-400 flex items-center gap-1 transition-all"
-                  >
-                    <span>View Dashboard of Product Demos</span>
-                  </a>
+                {/* Custom Micro-Tool Solution Card */}
+                <div className="p-4 bg-neutral-950 border border-neutral-800 rounded-2xl space-y-3">
+                  <div className="flex justify-between items-start gap-2">
+                    <div>
+                      <span className="text-[10px] text-emerald-400 font-mono uppercase">Recommended Micro-Tool</span>
+                      <h3 className="text-base font-bold text-white">{result.solutionName}</h3>
+                    </div>
+                    <div className="text-right">
+                      <span className="text-[10px] text-neutral-400 font-mono block">
+                        {lang === "en" ? "Est. One-Time Build" : "Costo Único Est."}
+                      </span>
+                      <span className="text-sm font-extrabold text-white">{result.setupFee}</span>
+                    </div>
+                  </div>
+
+                  <p className="text-xs text-neutral-300 leading-relaxed">{result.description}</p>
+
+                  <div className="text-[11px] text-neutral-400 font-mono bg-neutral-900/80 p-2.5 rounded-xl border border-neutral-800">
+                    <strong>{lang === "en" ? "Ongoing API / Hosting:" : "Costo Mensual API:"}</strong> {result.apiCost}
+                  </div>
                 </div>
 
-                <div className="pt-1">
+                {/* DIY / Build-It-Yourself Accordion */}
+                <div className="border border-neutral-800 rounded-xl bg-neutral-950 overflow-hidden">
                   <button
-                    onClick={() => setActiveTab("request")}
-                    className="w-full py-3.5 bg-white hover:bg-neutral-200 text-black font-bold rounded-xl shadow-lg transition-all text-xs tracking-wide text-center"
+                    onClick={() => setIsDiyOpen(!isDiyOpen)}
+                    className="w-full p-3 text-left text-xs font-mono text-neutral-300 hover:text-white flex justify-between items-center"
                   >
-                    {lang === "en" ? "Want us to build it? Request Free Demo & Quote →" : "¿Quieres que lo construyamos? Solicitar Demo y Cotización →"}
+                    <span>🛠️ {lang === "en" ? "Want to build this yourself? View Free DIY Blueprint" : "¿Quieres armarlo tú mismo? Ver Guía DIY Gratis"}</span>
+                    <span>{isDiyOpen ? "▲" : "▼"}</span>
                   </button>
+
+                  {isDiyOpen && (
+                    <div className="p-3.5 border-t border-neutral-800 space-y-3 text-xs text-neutral-300">
+                      <ol className="list-decimal list-inside space-y-1.5 text-[11px]">
+                        {activeSolutionData.diyBlueprint.steps.map((step, i) => (
+                          <li key={i}>{step}</li>
+                        ))}
+                      </ol>
+                      <div className="p-2.5 rounded-lg bg-neutral-900/90 border border-neutral-800 text-[11px] text-neutral-300 leading-relaxed">
+                        <strong className="text-white font-mono block mb-0.5">
+                          {lang === "en"
+                            ? "Real-World Tech Note: API Fees & Maintenance"
+                            : "Nota Técnica: Cuotas de API y Mantenimiento"}
+                        </strong>
+                        {lang === "en"
+                          ? "Even when you build a micro-tool yourself, API usage fees (such as WhatsApp Business messaging, SMS, or document OCR tokens) and ongoing maintenance (updating API keys, fixing broken webhooks when sheet columns change, and checking reliability) are normal parts of running software over time."
+                          : "Incluso cuando armas una micro-herramienta tú mismo, las cuotas de uso de API (como mensajes de WhatsApp Business, SMS o tokens OCR) y el mantenimiento continuo (actualizar llaves API, ajustar webhooks si cambian columnas en Sheets y revisar estabilidad) son parte normal de operar software con el tiempo."}
+                      </div>
+                      <div className="p-2.5 bg-black border border-neutral-800 rounded-lg font-mono text-[11px] text-neutral-400">
+                        {activeSolutionData.diyBlueprint.systemPrompt}
+                      </div>
+                      <button
+                        onClick={handleCopyPrompt}
+                        className="px-3 py-1.5 bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 rounded-lg text-[11px] font-bold text-white"
+                      >
+                        {copiedPrompt
+                          ? lang === "en" ? "Copied Prompt! ✓" : "¡Prompt Copiado! ✓"
+                          : lang === "en" ? "Copy AI Builder Prompt" : "Copiar Prompt para IA"}
+                      </button>
+                    </div>
+                  )}
                 </div>
+
+                <button
+                  onClick={() => setActiveTab("request")}
+                  className="w-full py-3.5 bg-white hover:bg-neutral-200 text-black font-bold rounded-xl shadow-lg transition-all text-xs tracking-wide"
+                >
+                  {lang === "en" ? "Request Free Demo & 15-Min Call →" : "Solicitar Demo Gratis y Llamada →"}
+                </button>
               </div>
             )}
 
-            {/* TAB 2: REQUEST FORM */}
             {activeTab === "request" && (
-              <div className="space-y-4 animate-fadeIn">
-                {!formSubmitted ? (
-                  <form onSubmit={handleRequestSubmit} className="space-y-3.5 p-4 bg-neutral-950 border border-neutral-900 rounded-2xl">
-                    <div className="space-y-1">
-                      <h3 className="text-sm font-bold text-white">
-                        {lang === "en" ? "Request Free Tailored Build and Demo Call" : "Solicitar Demo y Llamada a la Medida"}
-                      </h3>
-                      <p className="text-[11px] text-neutral-400">
-                        {lang === "en"
-                          ? "Deploy This Solution For Your Operation. Custom-built app connected directly to your Google Sheet for a one-time fee of $450. No monthly platform subscriptions."
-                          : "Despliega Esta Solución Para tu Operación. Aplicación a la medida conectada a tu Google Sheet por un pago único de $450. Sin suscripciones mensuales."}
-                      </p>
-                    </div>
-
-                    {/* Cost & Service Breakdown Card with API Costs included */}
-                    <div className="p-3 bg-neutral-900/90 border border-neutral-800 rounded-xl space-y-2 text-[11px]">
-                      <span className="text-[10px] font-mono text-emerald-400 font-bold uppercase tracking-wider">
-                        {lang === "en" ? "Price & Service Breakdown" : "Desglose de Costos"}
-                      </span>
-                      <div className="space-y-1 text-neutral-300">
-                        <div className="flex justify-between border-b border-neutral-800/60 pb-1">
-                          <span>{lang === "en" ? "• Custom Interface & App Build:" : "• Interfaz y App Móvil a la Medida:"}</span>
-                          <span className="font-mono text-white">$350</span>
-                        </div>
-                        <div className="flex justify-between border-b border-neutral-800/60 pb-1">
-                          <span>{lang === "en" ? "• Google Sheet & Webhook Integration:" : "• Integración con Google Sheets y Webhooks:"}</span>
-                          <span className="font-mono text-white">$100</span>
-                        </div>
-                        <div className="flex justify-between border-b border-neutral-800/60 pb-1 text-neutral-400">
-                          <span>{lang === "en" ? "• Platform Maintenance & API Hosting:" : "• Hosting y Mantenimiento de API:"}</span>
-                          <span className="font-mono text-emerald-400">{result.apiCost}</span>
-                        </div>
-                        <div className="flex justify-between pt-1 font-bold text-white">
-                          <span>{lang === "en" ? "Total Setup Cost:" : "Costo Total de Despliegue:"}</span>
-                          <span className="font-mono text-emerald-400">$450 USD</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="space-y-2.5 pt-1">
-                      <div>
-                        <label className="block text-[10px] font-mono text-neutral-400 mb-1">
-                          {lang === "en" ? "Your Name / Contact" : "Tu Nombre / Contacto"}
-                        </label>
-                        <input
-                          type="text"
-                          required
-                          value={clientName}
-                          onChange={(e) => setClientName(e.target.value)}
-                          placeholder={lang === "en" ? "e.g., Carlos Mendoza" : "ej., Carlos Mendoza"}
-                          className="w-full px-3 py-2.5 bg-neutral-900 border border-neutral-800 rounded-xl text-xs text-white focus:outline-none focus:border-white transition-all"
-                        />
-                      </div>
-
-                      <div className="grid grid-cols-2 gap-2">
-                        <div>
-                          <label className="block text-[10px] font-mono text-neutral-400 mb-1">Email</label>
-                          <input
-                            type="email"
-                            value={clientEmail}
-                            onChange={(e) => setClientEmail(e.target.value)}
-                            placeholder="carlos@taller.com"
-                            className="w-full px-3 py-2.5 bg-neutral-900 border border-neutral-800 rounded-xl text-xs text-white focus:outline-none focus:border-white transition-all"
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-[10px] font-mono text-neutral-400 mb-1">
-                            {lang === "en" ? "Phone (WhatsApp)" : "Teléfono (WhatsApp)"}
-                          </label>
-                          <input
-                            type="tel"
-                            value={clientPhone}
-                            onChange={(e) => setClientPhone(e.target.value)}
-                            placeholder="+52 686..."
-                            className="w-full px-3 py-2.5 bg-neutral-900 border border-neutral-800 rounded-xl text-xs text-white focus:outline-none focus:border-white transition-all"
-                          />
-                        </div>
-                      </div>
-
-                      <div>
-                        <label className="block text-[10px] font-mono text-neutral-400 mb-1">
-                          {lang === "en" ? "Business Name (Optional)" : "Nombre del Negocio (Opcional)"}
-                        </label>
-                        <input
-                          type="text"
-                          value={businessName}
-                          onChange={(e) => setBusinessName(e.target.value)}
-                          placeholder={lang === "en" ? "e.g., Taller Diesel Mexicali" : "ej., Taller Diesel Mexicali"}
-                          className="w-full px-3 py-2.5 bg-neutral-900 border border-neutral-800 rounded-xl text-xs text-white focus:outline-none focus:border-white transition-all"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="pt-2">
-                      <button
-                        type="submit"
-                        className="w-full py-3.5 bg-white hover:bg-neutral-200 text-black font-bold rounded-xl shadow-lg transition-all text-xs tracking-wide text-center"
-                      >
-                        {lang === "en" ? "Request Free Tailored Build and Demo Call" : "Solicitar Demo y Llamada a la Medida"}
-                      </button>
-                    </div>
-                  </form>
-                ) : (
-                  <div className="p-6 bg-neutral-950 border border-neutral-900 rounded-2xl text-center space-y-3">
-                    <div className="w-10 h-10 bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 rounded-full flex items-center justify-center mx-auto text-base">
-                      ✓
-                    </div>
+              <div className="p-4 bg-neutral-950 border border-neutral-800 rounded-2xl space-y-4">
+                {formSubmitted ? (
+                  <div className="text-center py-6 space-y-3">
+                    <div className="text-2xl">✅</div>
                     <h3 className="text-base font-bold text-white">
-                      {lang === "en" ? "Request Received Successfully!" : "¡Solicitud Recibida con Éxito!"}
+                      {lang === "en" ? "Request Received!" : "¡Solicitud Recibida!"}
                     </h3>
-                    <p className="text-xs text-neutral-400 leading-relaxed">
+                    <p className="text-xs text-neutral-400">
                       {lang === "en"
-                        ? "Your details have been logged. I will review your operational bottleneck and reach out via WhatsApp / Email within 24 hours to schedule your custom demo and setup."
-                        : "Tus datos han sido registrados. Revisaré tu caso y me pondré en contacto vía WhatsApp / Correo en menos de 24 horas para coordinar tu demo a la medida."}
+                        ? "I will reach out shortly with a custom walkthrough for your operation. You can also grab a 15-minute slot directly on my calendar below:"
+                        : "Me pondré en contacto pronto con una muestra para tu operación. También puedes agendar 15 minutos directo en mi calendario:"}
                     </p>
-                    <button
-                      onClick={resetApp}
-                      className="px-4 py-2 bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 rounded-xl text-xs font-bold text-white transition-all mt-2"
+                    <a
+                      href={CALENDAR_BOOKING_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block px-5 py-2.5 bg-white text-black font-bold rounded-xl text-xs hover:bg-neutral-200"
                     >
-                      {lang === "en" ? "Back to Home" : "Volver al Inicio"}
-                    </button>
+                      {lang === "en" ? "Book 15-Min Call on Google Calendar ↗" : "Agendar Llamada de 15 Min ↗"}
+                    </a>
                   </div>
+                ) : (
+                  <form onSubmit={handleRequestSubmit} className="space-y-3">
+                    <h3 className="text-sm font-bold text-white">
+                      {lang === "en" ? `Get a Free Demo: ${result.solutionName}` : `Solicita Demo Gratis: ${result.solutionName}`}
+                    </h3>
+                    <input
+                      type="text"
+                      required
+                      placeholder={lang === "en" ? "Your Name" : "Tu Nombre"}
+                      value={clientName}
+                      onChange={(e) => setClientName(e.target.value)}
+                      className="w-full p-2.5 bg-black border border-neutral-800 rounded-xl text-xs text-white"
+                    />
+                    <input
+                      type="text"
+                      placeholder={lang === "en" ? "Business Name" : "Nombre del Negocio"}
+                      value={businessName}
+                      onChange={(e) => setBusinessName(e.target.value)}
+                      className="w-full p-2.5 bg-black border border-neutral-800 rounded-xl text-xs text-white"
+                    />
+                    <input
+                      type="email"
+                      placeholder={lang === "en" ? "Email Address" : "Correo Electrónico"}
+                      value={clientEmail}
+                      onChange={(e) => setClientEmail(e.target.value)}
+                      className="w-full p-2.5 bg-black border border-neutral-800 rounded-xl text-xs text-white"
+                    />
+                    <input
+                      type="tel"
+                      placeholder={lang === "en" ? "Phone / WhatsApp Number" : "Teléfono / WhatsApp"}
+                      value={clientPhone}
+                      onChange={(e) => setClientPhone(e.target.value)}
+                      className="w-full p-2.5 bg-black border border-neutral-800 rounded-xl text-xs text-white"
+                    />
+                    <button
+                      type="submit"
+                      className="w-full py-3 bg-white hover:bg-neutral-200 text-black font-bold rounded-xl text-xs"
+                    >
+                      {lang === "en" ? "Send Request & View Calendar →" : "Enviar Solicitud y Ver Calendario →"}
+                    </button>
+                  </form>
                 )}
               </div>
             )}
           </div>
         )}
-
       </main>
 
       {/* Footer */}
-      <footer className="py-4 border-t border-neutral-900 mt-8 flex justify-between items-center text-[10px] text-neutral-400 font-mono">
+      <footer className="pt-6 mt-8 border-t border-neutral-900 flex justify-between items-center text-[10px] text-neutral-500 font-mono">
         <span>© 2026 Mayella&apos;s Software Workshop</span>
-        <span className="text-neutral-400">Imperial Valley / Mexicali Corridor</span>
+        <span>Calexico • El Centro • Mexicali</span>
       </footer>
-
     </div>
   );
 }
